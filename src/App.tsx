@@ -3,7 +3,7 @@ import './App.css';
 import {Todolist} from "./Todolist";
 import {v1} from "uuid";
 
-
+export type FilterValuesType = 'all' | 'active' | 'completed'
 
 export function App() {
     let [tasks1,setTasks] = useState([
@@ -14,6 +14,18 @@ export function App() {
         { id: v1(), title: "GraphQL", isDone: false },
 
     ])
+    const [filter, setfilter] = useState<FilterValuesType>("all")
+    let colander = tasks1
+    if (filter === "active") {
+        colander = tasks1.filter(el => !el.isDone)
+    }
+    if (filter === "completed") {
+        colander = tasks1.filter(el => el.isDone)
+    }
+    function changeFilter(value:FilterValuesType) {
+        setfilter(value)
+    }
+
  const removeTask =(taskId: string)=>{
         let remove = tasks1.filter((t)=>t.id !== taskId)
        return  setTasks(remove)
@@ -28,7 +40,7 @@ const addTasks =(title: string)=>{
 
     return (
         <div className="App">
-            <Todolist shapka={"What to learn"}  tasks ={tasks1} removeTask={removeTask} addTasks={addTasks} /> //
+            <Todolist title={"What to learn"}  tasks ={colander} removeTask={removeTask} addTasks={addTasks} changeFilter={changeFilter}/> //
         </div>
     );
 }
