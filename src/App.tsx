@@ -34,13 +34,14 @@ export function App() {
 const addTasks =(title: string)=>{
        const newTask =  { id: v1(), title: title, isDone: false };
         setTasks([newTask,...tasks1])
-       
+}
+const changeIsDone =(taskId:string, isDoneValue: boolean)=>{
+        setTasks(tasks1.map(el=>el.id===taskId ? {...el, isDone:isDoneValue}: el))
 
 }
-
     return (
         <div className="App">
-            <Todolist title={"What to learn"}  tasks ={colander} removeTask={removeTask} addTasks={addTasks} changeFilter={changeFilter}/> //
+            <Todolist title={"What to learn"}  tasks ={colander} removeTask={removeTask} addTasks={addTasks} changeFilter={changeFilter} changeIsDone={changeIsDone} filter={filter}/> //
         </div>
     );
 }
