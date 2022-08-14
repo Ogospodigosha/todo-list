@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8749a161-a449-4203-8a88-ee854411ab1e" name="Changes" comment="add reaction checkbox">
+    <list default="true" id="8749a161-a449-4203-8a88-ee854411ab1e" name="Changes" comment="add style for filter button">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Todolist.tsx" afterDir="false" />
     </list>
@@ -35,7 +35,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/it-incubator/todo-list/src&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/it-incubator/it-camasutra-examples/my-app&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2022.1.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
@@ -64,7 +64,11 @@
       <workItem from="1659976960987" duration="4877000" />
       <workItem from="1660046515176" duration="23000" />
       <workItem from="1660055864313" duration="233000" />
-      <workItem from="1660056107799" duration="654000" />
+      <workItem from="1660056107799" duration="2495000" />
+      <workItem from="1660065883449" duration="722000" />
+      <workItem from="1660067655324" duration="720000" />
+      <workItem from="1660133722147" duration="18000" />
+      <workItem from="1660134734954" duration="10000" />
     </task>
     <task id="LOCAL-00001" summary="add reaction checkbox">
       <created>1659981171761</created>
@@ -73,7 +77,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659981171761</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add style for filter button">
+      <created>1660056820509</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1660056820509</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -92,6 +103,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add reaction checkbox" />
-    <option name="LAST_COMMIT_MESSAGE" value="add reaction checkbox" />
+    <MESSAGE value="add style for filter button" />
+    <option name="LAST_COMMIT_MESSAGE" value="add style for filter button" />
   </component>
 </project>
