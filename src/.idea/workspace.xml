@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8749a161-a449-4203-8a88-ee854411ab1e" name="Changes" comment="add style for filter button">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Todolist.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,18 +31,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/it-incubator/it-camasutra-examples/my-app&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2022.1.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/it-incubator/todo-list/src",
+    "list.type.of.created.stylesheet": "CSS",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2022.1.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\it-incubator\todo-list\src\Components" />
@@ -69,6 +70,24 @@
       <workItem from="1660067655324" duration="720000" />
       <workItem from="1660133722147" duration="18000" />
       <workItem from="1660134734954" duration="10000" />
+      <workItem from="1660511492100" duration="95000" />
+      <workItem from="1660662249716" duration="204000" />
+      <workItem from="1660662874476" duration="12000" />
+      <workItem from="1660663485025" duration="97000" />
+      <workItem from="1660675124791" duration="109000" />
+      <workItem from="1660675259985" duration="228000" />
+      <workItem from="1660675518505" duration="333000" />
+      <workItem from="1660675885886" duration="74000" />
+      <workItem from="1660675986506" duration="191000" />
+      <workItem from="1660676206575" duration="149000" />
+      <workItem from="1660676574746" duration="709000" />
+      <workItem from="1660677303982" duration="24000" />
+      <workItem from="1660677371698" duration="179000" />
+      <workItem from="1660677595623" duration="75000" />
+      <workItem from="1660677782015" duration="197000" />
+      <workItem from="1660678017440" duration="45000" />
+      <workItem from="1660678087079" duration="147000" />
+      <workItem from="1660678267709" duration="1559000" />
     </task>
     <task id="LOCAL-00001" summary="add reaction checkbox">
       <created>1659981171761</created>
@@ -84,7 +103,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660056820509</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add style for filter button">
+      <created>1660511515176</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1660511515176</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
