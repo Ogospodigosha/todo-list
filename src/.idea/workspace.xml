@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8749a161-a449-4203-8a88-ee854411ab1e" name="Changes" comment="add style for filter button">
+    <list default="true" id="8749a161-a449-4203-8a88-ee854411ab1e" name="Changes" comment="add more Todolists">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Todolist.tsx" afterDir="false" />
@@ -87,7 +87,8 @@
       <workItem from="1660677782015" duration="197000" />
       <workItem from="1660678017440" duration="45000" />
       <workItem from="1660678087079" duration="147000" />
-      <workItem from="1660678267709" duration="1559000" />
+      <workItem from="1660678267709" duration="1809000" />
+      <workItem from="1660740862892" duration="449000" />
     </task>
     <task id="LOCAL-00001" summary="add reaction checkbox">
       <created>1659981171761</created>
@@ -110,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660511515176</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add more Todolists">
+      <created>1660679907802</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1660679907802</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,6 +138,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add reaction checkbox" />
     <MESSAGE value="add style for filter button" />
-    <option name="LAST_COMMIT_MESSAGE" value="add style for filter button" />
+    <MESSAGE value="add more Todolists" />
+    <option name="LAST_COMMIT_MESSAGE" value="add more Todolists" />
   </component>
 </project>

@@ -13,6 +13,7 @@ export type TodolistProsType ={
     changeIsDone: (taskId: string, isDoneValue: boolean, todoListID: string)=>void
     filter: FilterValuesType
     id: string
+    deleteTodolist: (todoListID: string)=> void
 }
 
 
@@ -63,9 +64,12 @@ export const Todolist=(props: TodolistProsType )=> {
     const remomeTaskHandler =(id: string)=>{
        return props.removeTask(id, props.id)
     }
+    const deleteTaskHendler =()=>{
+        props.deleteTodolist(props.id)
+    }
     return (
     <div>
-        <h3>{props.title}</h3>
+        <h3>{props.title}<button onClick={deleteTaskHendler}>x</button></h3>
         <div>
             <input value={title} onChange={onChangeHandler} onKeyPress={onKeyPressHandler} className={error ? style.error : ""}/>
             <Button callback={addTaskHandler} nickName={"+"}/>

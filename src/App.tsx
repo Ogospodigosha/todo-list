@@ -52,6 +52,9 @@ export function App() {
             [todoListID]: tasks[todoListID].map(el => el.id === taskId ? {...el, isDone: isDoneValue} : el)
         })
     }
+    const deleteTodolist= (todoListID: string)=>{
+        setTodoiLists(todoLists.filter(el=>el.id !== todoListID))
+    }
     const todolistRender = todoLists.map(el => {
         let colander = tasks[el.id]
         let tasksForTodolist = colander
@@ -69,6 +72,7 @@ export function App() {
                              changetodoListsFilter={changetodoListsFilter}
                              changeIsDone={changeIsDone}
                              filter={el.filter}
+                             deleteTodolist={deleteTodolist}
             />
 
     })
