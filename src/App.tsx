@@ -57,7 +57,12 @@ export function App() {
     const deleteTodolist= (todoListID: string)=>{
         setTodoiLists(todoLists.filter(el=>el.id !== todoListID))
     }
-
+ const changeTaskTitle = (taskId: string, newValue: string, todoListID: string) => {
+        setTasks({...tasks, [todoListID]: tasks[todoListID].map(el => el.id === taskId ? {...el, title: newValue} : el)})
+ }
+    const changeTodolistTitle = (todoListID: string, title: string)=>{
+        setTodoiLists([...todoLists.map(el=> el.id === todoListID ? {...el, title: title} : el)])
+    }
     const todolistRender = todoLists.map(el => {
         let colander = tasks[el.id]
         let tasksForTodolist = colander
@@ -76,13 +81,20 @@ export function App() {
                              changeIsDone={changeIsDone}
                              filter={el.filter}
                              deleteTodolist={deleteTodolist}
+                             changeTaskTitle={changeTaskTitle}
+                             changeTodolistTitle={changeTodolistTitle}
             />
 
     })
+        const addTodolist =(title: string)=>{
+        let todolist: TodolistType = {id: v1(), title: title, filter: "all"}
+            setTodoiLists([...todoLists, todolist])
+            setTasks({...tasks, [todolist.id]: []})
 
+        }
         return (
             <div className="App">
-                <AddItemForm addItem={(title:string)=>{alert(title)}} />
+                <AddItemForm addItem={addTodolist} />
                 {todolistRender}
             </div>
         );

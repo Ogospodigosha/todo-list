@@ -3,6 +3,7 @@ import {FilterValuesType} from "./App";
 import {Button} from "./Components/Button";
 import style from "./todolist.module.css";
 import {AddItemForm} from "./AddItemForm";
+import {EditableSpan} from "./EditableSpan";
 
 
 export type TodolistProsType ={
@@ -12,9 +13,12 @@ export type TodolistProsType ={
     addTasks: (title:string, todoListID: string)=>void
     changetodoListsFilter: (value: FilterValuesType, todoListID: string) =>void
     changeIsDone: (taskId: string, isDoneValue: boolean, todoListID: string)=>void
+    changeTaskTitle: (taskId: string, newValue: string, todoListID: string)=>void
     filter: FilterValuesType
     id: string
     deleteTodolist: (todoListID: string)=> void
+    changeTodolistTitle: (todoListID: string, title: string)=> void
+
 }
 
 
@@ -43,20 +47,26 @@ export const Todolist=(props: TodolistProsType )=> {
     const addTask = (title: string)=>{
         props.addTasks(title, props.id)
     }
+    const changeTodolistTitle = (title: string) => {
+          props.changeTodolistTitle(props.id, title)
+    }
     return (
     <div>
-        <h3>{props.title}<button onClick={deleteTaskHendler}>x</button></h3>
+        <h3><EditableSpan title={props.title} onChange={changeTodolistTitle}/><button onClick={deleteTaskHendler}>x</button></h3>
         <AddItemForm addItem={addTask} />
         <ul>
             {props.tasks.map((el)=>{
                 const changeIsDoneHendler=(event: ChangeEvent<HTMLInputElement>)=>{
                     props.changeIsDone(el.id, event.currentTarget.checked, props.id)
                 }
+                const changeTitleHendler=(newValue: string)=>{
+                    props.changeTaskTitle(el.id, newValue, props.id )
+                }
                 return(
                 <li key={el.id} className={el.isDone ? style.isDone : ""}>
                     <Button callback={()=>remomeTaskHandler(el.id)} nickName={"x"}/>
                     <input type="checkbox" onChange={changeIsDoneHendler} checked={el.isDone}/>
-                    <span>{el.title}</span>
+                    <EditableSpan title={el.title} onChange={changeTitleHendler}/>
                 </li>)
             })}
 

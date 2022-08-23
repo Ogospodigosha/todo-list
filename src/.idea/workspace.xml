@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8749a161-a449-4203-8a88-ee854411ab1e" name="Changes" comment="add function delete todolist">
+    <list default="true" id="8749a161-a449-4203-8a88-ee854411ab1e" name="Changes" comment="add universal form">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Todolist.tsx" afterDir="false" />
@@ -31,23 +31,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/it-incubator/todo-list/src&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2022.1.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/it-incubator/todo-list/src",
+    "list.type.of.created.stylesheet": "CSS",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2022.1.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\it-incubator\todo-list\src\Components" />
     </key>
     <key name="es6.move.members.recent.items">
+      <recent name="D:\it-incubator\todo-list\src\EditableSpan.tsx" />
       <recent name="D:\it-incubator\todo-list\src\AddItemForm.tsx" />
     </key>
   </component>
@@ -98,6 +99,15 @@
       <workItem from="1660764708095" duration="200000" />
       <workItem from="1661191409971" duration="2995000" />
       <workItem from="1661195567679" duration="1191000" />
+      <workItem from="1661197220448" duration="862000" />
+      <workItem from="1661198817718" duration="475000" />
+      <workItem from="1661254486942" duration="352000" />
+      <workItem from="1661255289173" duration="322000" />
+      <workItem from="1661256665696" duration="247000" />
+      <workItem from="1661258201637" duration="3940000" />
+      <workItem from="1661262579740" duration="163000" />
+      <workItem from="1661262875448" duration="680000" />
+      <workItem from="1661278057227" duration="2137000" />
     </task>
     <task id="LOCAL-00001" summary="add reaction checkbox">
       <created>1659981171761</created>
@@ -134,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660741349174</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add universal form">
+      <created>1661197249733</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1661197249733</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -156,6 +173,7 @@
     <MESSAGE value="add style for filter button" />
     <MESSAGE value="add more Todolists" />
     <MESSAGE value="add function delete todolist" />
-    <option name="LAST_COMMIT_MESSAGE" value="add function delete todolist" />
+    <MESSAGE value="add universal form" />
+    <option name="LAST_COMMIT_MESSAGE" value="add universal form" />
   </component>
 </project>
