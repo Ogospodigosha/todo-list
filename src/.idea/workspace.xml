@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8749a161-a449-4203-8a88-ee854411ab1e" name="Changes" comment="add universal form">
+    <list default="true" id="8749a161-a449-4203-8a88-ee854411ab1e" name="Changes" comment="add function adding Todolist">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Todolist.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +34,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/it-incubator/todo-list/src",
+    "last_opened_file_path": "D:/it-incubator/IgorArray/my-app/src",
     "list.type.of.created.stylesheet": "CSS",
     "nodejs_package_manager_path": "npm",
     "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2022.1.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
@@ -107,7 +105,10 @@
       <workItem from="1661258201637" duration="3940000" />
       <workItem from="1661262579740" duration="163000" />
       <workItem from="1661262875448" duration="680000" />
-      <workItem from="1661278057227" duration="2137000" />
+      <workItem from="1661278057227" duration="2843000" />
+      <workItem from="1661426555232" duration="10000" />
+      <workItem from="1661438090015" duration="144000" />
+      <workItem from="1661527421170" duration="31000" />
     </task>
     <task id="LOCAL-00001" summary="add reaction checkbox">
       <created>1659981171761</created>
@@ -151,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661197249733</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add function adding Todolist">
+      <created>1661280917784</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1661280917784</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,6 +182,7 @@
     <MESSAGE value="add more Todolists" />
     <MESSAGE value="add function delete todolist" />
     <MESSAGE value="add universal form" />
-    <option name="LAST_COMMIT_MESSAGE" value="add universal form" />
+    <MESSAGE value="add function adding Todolist" />
+    <option name="LAST_COMMIT_MESSAGE" value="add function adding Todolist" />
   </component>
 </project>
