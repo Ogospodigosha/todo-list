@@ -1,7 +1,9 @@
 import style from "./todolist.module.css";
-import {Button} from "./Components/Button";
+
 import React, {ChangeEvent} from "react";
 import  {useState, KeyboardEvent} from 'react';
+import { Button, IconButton, TextField } from "@material-ui/core";
+import { ControlPoint } from "@material-ui/icons";
 
 type addItemFormPropsType = {
     addItem: (title: string) => void
@@ -29,9 +31,23 @@ export const AddItemForm = (props: addItemFormPropsType) => {
 
     }
     return <div>
-        <input value={title} onChange={onChangeHandler} onKeyPress={onKeyPressHandler}
-               className={error ? style.error : ""}/>
-        <Button callback={addTaskHandler} nickName={"+"}/>
-        {error && <div className={style.errorMessage}>{error}</div>}
+        {/*<input value={title}*/}
+        {/*       onChange={onChangeHandler}*/}
+        {/*       onKeyPress={onKeyPressHandler}*/}
+        {/*       className={error ? style.error : ""}*/}
+        {/*/>*/}
+        <TextField value={title}
+                   variant={"outlined"}
+               onChange={onChangeHandler}
+                   label={"type value"}
+               onKeyPress={onKeyPressHandler}
+                   error={!!error}
+                   helperText={error}
+        />
+
+        <IconButton  color={"primary"} onClick={addTaskHandler}>
+            <ControlPoint/>
+        </IconButton>
+        {/*{error && <div className={style.errorMessage}>{error}</div>}*/}
     </div>
 }
