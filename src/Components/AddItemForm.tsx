@@ -38,9 +38,9 @@ export const AddItemForm = (props: addItemFormPropsType) => {
         {/*/>*/}
         <TextField value={title}
                    variant={"outlined"}
-               onChange={onChangeHandler}
+                   onChange={onChangeHandler}
                    label={"type value"}
-               onKeyPress={onKeyPressHandler}
+                   onKeyPress={onKeyPressHandler}
                    error={!!error}
                    helperText={error}
         />
