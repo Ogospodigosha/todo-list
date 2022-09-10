@@ -13,14 +13,14 @@ export type TodolistType = {
     title: string
     filter: FilterValuesType
 }
-type TaskStateType = {
-    [todoListID_1: string]: Array<InArrayProps>
+export type TaskStateType = {
+    [todoListID: string]: Array<InArrayProps>
 }
 
 export function App() {
     const todoListID_1 = v1()
     const todoListID_2 = v1()
- const [todoLists, setTodoiLists] = useState<Array<TodolistType>>([
+    const [todoLists, setTodoiLists] = useState<Array<TodolistType>>([
         {id: todoListID_1, title: "What to learn", filter: "all"},
         {id: todoListID_2, title: "What to Buy", filter: "all"}
     ])

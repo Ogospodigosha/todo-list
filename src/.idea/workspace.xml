@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8749a161-a449-4203-8a88-ee854411ab1e" name="Changes" comment="add function adding Todolist">
-      <change afterPath="$PROJECT_DIR$/Components/AddItemForm.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/EditableSpan.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/state/todolists-reduser.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/state/todolists-reduser.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/state/user-reducer.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/state/user-reducer.ts" afterDir="false" />
+    <list default="true" id="8749a161-a449-4203-8a88-ee854411ab1e" name="Changes" comment="add todolistsReducer and test">
+      <change afterPath="$PROJECT_DIR$/state/tasks-reducer.test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/state/tasks-reducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/state/todolists-tasks-reducer.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AddItemForm.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.test.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EditableSpan.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Todolist.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/state/todolists-reduser.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/state/todolists-reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/state/todolists-reduser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/state/todolists-reducer.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,18 +37,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/it-incubator/todo-list/src/state&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\program Files\\WebStorm 2022.2.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/it-incubator/todo-list/src",
+    "list.type.of.created.stylesheet": "CSS",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "D:\\program Files\\WebStorm 2022.2.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\it-incubator\todo-list\src\state" />
@@ -132,7 +128,16 @@
       <workItem from="1662307880037" duration="3252000" />
       <workItem from="1662316836201" duration="4353000" />
       <workItem from="1662324447523" duration="7699000" />
-      <workItem from="1662359533766" duration="2708000" />
+      <workItem from="1662359533766" duration="4071000" />
+      <workItem from="1662581486502" duration="34000" />
+      <workItem from="1662643501794" duration="30000" />
+      <workItem from="1662643556041" duration="16000" />
+      <workItem from="1662643623187" duration="29000" />
+      <workItem from="1662644521351" duration="36000" />
+      <workItem from="1662644855173" duration="25000" />
+      <workItem from="1662668533124" duration="1383000" />
+      <workItem from="1662809615774" duration="23000" />
+      <workItem from="1662812385761" duration="12387000" />
     </task>
     <task id="LOCAL-00001" summary="add reaction checkbox">
       <created>1659981171761</created>
@@ -183,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661280917784</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add todolistsReducer and test">
+      <created>1662374896614</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1662374896614</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,6 +219,7 @@
     <MESSAGE value="add function delete todolist" />
     <MESSAGE value="add universal form" />
     <MESSAGE value="add function adding Todolist" />
-    <option name="LAST_COMMIT_MESSAGE" value="add function adding Todolist" />
+    <MESSAGE value="add todolistsReducer and test" />
+    <option name="LAST_COMMIT_MESSAGE" value="add todolistsReducer and test" />
   </component>
 </project>

@@ -57,7 +57,6 @@ export const Todolist=(props: TodolistProsType )=> {
     <div>
         <h3>
             <EditableSpan title={props.title} onChange={changeTodolistTitle}/>
-            {/*<button onClick={deleteTaskHendler}>x</button>*/}
             <IconButton  onClick={deleteTaskHendler}>
                 <Delete />
             </IconButton>
