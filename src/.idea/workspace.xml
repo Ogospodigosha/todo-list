@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8749a161-a449-4203-8a88-ee854411ab1e" name="Changes" comment="add todolistsReducer and test">
-      <change afterPath="$PROJECT_DIR$/state/tasks-reducer.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/state/tasks-reducer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/state/todolists-tasks-reducer.test.ts" afterDir="false" />
+    <list default="true" id="8749a161-a449-4203-8a88-ee854411ab1e" name="Changes" comment="add tasksReducer and test">
+      <change afterPath="$PROJECT_DIR$/AppWithReducers.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Todolist.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/state/todolists-reduser.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/state/todolists-reducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/state/todolists-reduser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/state/todolists-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/state/tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/state/tasks-reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/state/todolists-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/state/todolists-reducer.test.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +48,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\it-incubator\todo-list\src" />
       <recent name="D:\it-incubator\todo-list\src\state" />
       <recent name="D:\it-incubator\todo-list\src\Components" />
     </key>
@@ -137,7 +135,21 @@
       <workItem from="1662644855173" duration="25000" />
       <workItem from="1662668533124" duration="1383000" />
       <workItem from="1662809615774" duration="23000" />
-      <workItem from="1662812385761" duration="12387000" />
+      <workItem from="1662812385761" duration="13328000" />
+      <workItem from="1662917274985" duration="52000" />
+      <workItem from="1662985415990" duration="17000" />
+      <workItem from="1663175406433" duration="1873000" />
+      <workItem from="1663177771320" duration="1246000" />
+      <workItem from="1663255868015" duration="9000" />
+      <workItem from="1663703464106" duration="972000" />
+      <workItem from="1663951716801" duration="25000" />
+      <workItem from="1663960214091" duration="74000" />
+      <workItem from="1663960533646" duration="58000" />
+      <workItem from="1663960820932" duration="21000" />
+      <workItem from="1663961041244" duration="43000" />
+      <workItem from="1663961085346" duration="25000" />
+      <workItem from="1663961373938" duration="30000" />
+      <workItem from="1664466440275" duration="3876000" />
     </task>
     <task id="LOCAL-00001" summary="add reaction checkbox">
       <created>1659981171761</created>
@@ -195,7 +207,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662374896614</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="add tasksReducer and test">
+      <created>1662827548825</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1662827548825</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,6 +239,7 @@
     <MESSAGE value="add universal form" />
     <MESSAGE value="add function adding Todolist" />
     <MESSAGE value="add todolistsReducer and test" />
-    <option name="LAST_COMMIT_MESSAGE" value="add todolistsReducer and test" />
+    <MESSAGE value="add tasksReducer and test" />
+    <option name="LAST_COMMIT_MESSAGE" value="add tasksReducer and test" />
   </component>
 </project>
