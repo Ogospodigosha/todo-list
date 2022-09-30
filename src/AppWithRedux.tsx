@@ -1,7 +1,6 @@
-import React, {useReducer, useState} from 'react';
+import React from 'react';
 import './App.css';
 import {InArrayProps, Todolist} from "./Todolist";
-import {v1} from "uuid";
 import {AddItemForm} from "./Components/AddItemForm";
 import {AppBar, Container, Grid, IconButton, Paper, Toolbar, Typography} from '@material-ui/core';
 import {Menu} from '@material-ui/icons';
@@ -11,7 +10,7 @@ import {
     ChangeTodolistAC,
     ChangeTodolistFilterAC,
     RemoveTodolistAC,
-    todolistsReducer
+
 } from "./state/todolists-reducer";
 import {
     addTaskAC,
@@ -19,10 +18,9 @@ import {
     ChangeTaskTitleAC,
     removeTaskAC,
     RemoveTaskActionType,
-    tasksReducer
 } from "./state/tasks-reducer";
-import { useDispatch, useSelector } from 'react-redux';
-import { AppRootState } from './state/store';
+import {useDispatch, useSelector} from "react-redux";
+import {AppRootState} from "./state/store";
 
 export type FilterValuesType = 'all' | 'active' | 'completed'
 export type TodolistType = {
@@ -34,18 +32,19 @@ export type TaskStateType = {
     [todoListID: string]: Array<InArrayProps>
 }
 
-export function AppWithReducers() {
+export function AppWithRedux() {
     const dispatch = useDispatch()
     const todoLists = useSelector<AppRootState, Array<TodolistType>>(state => state.todolists)
     const tasks = useSelector<AppRootState, TaskStateType>(state => state.tasks)
+
+
     function changetodoListsFilter(value: FilterValuesType, todoListID: string) {
         dispatch(ChangeTodolistFilterAC(todoListID, value))
     }
 
-
     const removeTask = (taskId: string, todoListID: string) => {
-        const action= removeTaskAC(taskId, todoListID);
-        dispatch(action)
+        dispatch(removeTaskAC(todoListID, taskId));
+
     }
 
     const addTasks = (title: string, todoListID: string) => {
@@ -62,7 +61,7 @@ export function AppWithReducers() {
         dispatch(ChangeTaskTitleAC(taskId, newValue, todoListID))
     }
     const changeTodolistTitle = (todoListID: string, title: string) => {
-       dispatch(ChangeTodolistAC(todoListID, title))
+        dispatch(ChangeTodolistAC(todoListID, title))
     }
     const todolistRender = todoLists.map(el => {
         let colander = tasks[el.id]
@@ -119,4 +118,4 @@ export function AppWithReducers() {
     );
 }
 
-export default AppWithReducers;
+export default AppWithRedux;

@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8749a161-a449-4203-8a88-ee854411ab1e" name="Changes" comment="add tasksReducer and test">
-      <change afterPath="$PROJECT_DIR$/AppWithReducers.tsx" afterDir="false" />
+    <list default="true" id="8749a161-a449-4203-8a88-ee854411ab1e" name="Changes" comment="add useReducers">
+      <change afterPath="$PROJECT_DIR$/AppWithRedux.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/state/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppWithReducers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/AppWithReducers.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/state/tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/state/tasks-reducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/state/todolists-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/state/todolists-reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/state/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/state/tasks-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/state/todolists-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/state/todolists-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +43,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/it-incubator/todo-list/src",
+    "last_opened_file_path": "D:/it-incubator/todo-list/node_modules",
     "list.type.of.created.stylesheet": "CSS",
     "nodejs_package_manager_path": "npm",
     "ts.external.directory.path": "D:\\program Files\\WebStorm 2022.2.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
@@ -149,7 +153,8 @@
       <workItem from="1663961041244" duration="43000" />
       <workItem from="1663961085346" duration="25000" />
       <workItem from="1663961373938" duration="30000" />
-      <workItem from="1664466440275" duration="3876000" />
+      <workItem from="1664466440275" duration="10279000" />
+      <workItem from="1664483997537" duration="132000" />
     </task>
     <task id="LOCAL-00001" summary="add reaction checkbox">
       <created>1659981171761</created>
@@ -214,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662827548825</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add useReducers">
+      <created>1664471499612</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1664471499612</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,6 +252,7 @@
     <MESSAGE value="add function adding Todolist" />
     <MESSAGE value="add todolistsReducer and test" />
     <MESSAGE value="add tasksReducer and test" />
-    <option name="LAST_COMMIT_MESSAGE" value="add tasksReducer and test" />
+    <MESSAGE value="add useReducers" />
+    <option name="LAST_COMMIT_MESSAGE" value="add useReducers" />
   </component>
 </project>
