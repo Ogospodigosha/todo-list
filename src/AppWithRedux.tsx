@@ -21,7 +21,7 @@ import {
 } from "./state/tasks-reducer";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootState} from "./state/store";
-
+//
 export type FilterValuesType = 'all' | 'active' | 'completed'
 export type TodolistType = {
     id: string

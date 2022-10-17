@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8749a161-a449-4203-8a88-ee854411ab1e" name="Changes" comment="add useReducers">
-      <change afterPath="$PROJECT_DIR$/AppWithRedux.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/state/store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppWithReducers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/AppWithReducers.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/state/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/state/tasks-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/state/todolists-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/state/todolists-reducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +37,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/it-incubator/todo-list/node_modules",
+    "last_opened_file_path": "D:/valeraTodo/it-incubator-todolist-ts-08/src",
     "list.type.of.created.stylesheet": "CSS",
     "nodejs_package_manager_path": "npm",
     "ts.external.directory.path": "D:\\program Files\\WebStorm 2022.2.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
@@ -155,6 +149,9 @@
       <workItem from="1663961373938" duration="30000" />
       <workItem from="1664466440275" duration="10279000" />
       <workItem from="1664483997537" duration="132000" />
+      <workItem from="1665486436395" duration="371000" />
+      <workItem from="1665486828680" duration="718000" />
+      <workItem from="1665757282905" duration="16000" />
     </task>
     <task id="LOCAL-00001" summary="add reaction checkbox">
       <created>1659981171761</created>
