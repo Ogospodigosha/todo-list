@@ -2,8 +2,10 @@ import style from "./todolist.module.css";
 
 import React, {ChangeEvent} from "react";
 import  {useState, KeyboardEvent} from 'react';
-import { Button, IconButton, TextField } from "@material-ui/core";
-import { ControlPoint } from "@material-ui/icons";
+
+import {ControlPoint} from "@mui/icons-material";
+import {IconButton, TextField} from "@mui/material";
+
 
 type addItemFormPropsType = {
     addItem: (title: string) => void

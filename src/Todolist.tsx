@@ -1,10 +1,12 @@
 import React, {useCallback} from "react";
-import {FilterValuesType} from "./App";
+
 import {AddItemForm} from "./Components/AddItemForm";
 import {EditableSpan} from "./Components/EditableSpan";
-import {Button, IconButton} from "@material-ui/core";
-import {Delete} from "@material-ui/icons";
+
 import {Task} from "./Task";
+import {Button, IconButton} from "@mui/material";
+import {Delete} from "@mui/icons-material";
+import {FilterValuesType} from "./AppWithRedux";
 
 
 export type TodolistProsType ={
@@ -67,7 +69,7 @@ export const Todolist=React.memo( (props: TodolistProsType )=> {
         </h3>
         <AddItemForm addItem={addTask} />
         <div>
-            {props.tasks.map((el)=><Task key ={el.id} todolistId={props.id} changeIsDone={props.changeIsDone} changeTaskTitle={props.changeTaskTitle}  removeTask={props.removeTask} el={el}/>)}
+            {tasksForTodolist.map((el)=><Task key ={el.id} todolistId={props.id} changeIsDone={props.changeIsDone} changeTaskTitle={props.changeTaskTitle}  removeTask={props.removeTask} el={el}/>)}
 
         </div>
         <div>

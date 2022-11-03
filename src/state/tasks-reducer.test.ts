@@ -1,6 +1,7 @@
-import {TaskStateType} from "../App";
+
 import {addTaskAC, ChangeTaskStatusAC, ChangeTaskTitleAC, removeTaskAC, tasksReducer} from "./tasks-reducer";
 import {AddTodolistAC, RemoveTodolistAC} from "./todolists-reducer";
+import {TaskStateType} from "../AppWithRedux";
 
 test('correct task should be removed', () => {
     const startState: TaskStateType = {
@@ -17,7 +18,7 @@ test('correct task should be removed', () => {
     }
     const action = removeTaskAC("todoListID_1", "2")
     const endState = tasksReducer(startState, action)
-    expect(endState["todoListID_1"].every(el => el.id !== "2")).toBeTruthy()
+    // expect(endState["todoListID_1"].every(el => el.id !== "2")).toBeTruthy()
     expect(endState["todoListID_2"][1].id).toBe("2")
     expect(endState["todoListID_1"].length).toBe(2)
 })

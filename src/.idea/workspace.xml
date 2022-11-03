@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8749a161-a449-4203-8a88-ee854411ab1e" name="Changes" comment="add test commit">
-      <change afterPath="$PROJECT_DIR$/Task.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../integration/app.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../integration/jest.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../integration/setupTests.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stories/AddItemForm.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppWithRedux.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/AppWithRedux.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/AddItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/AddItemForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/EditableSpan.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/EditableSpan.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Todolist.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +41,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/newTodo/todo-list/package.json&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/todo/todo-list&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;ts.external.directory.path&quot;: &quot;D:\\program Files\\WebStorm 2022.2.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
@@ -166,6 +167,9 @@
       <workItem from="1666367783870" duration="6304000" />
       <workItem from="1666552244003" duration="5304000" />
       <workItem from="1666720578234" duration="5131000" />
+      <workItem from="1667431049666" duration="16000" />
+      <workItem from="1667431066800" duration="46000" />
+      <workItem from="1667477524414" duration="8000" />
     </task>
     <task id="LOCAL-00001" summary="add reaction checkbox">
       <created>1659981171761</created>

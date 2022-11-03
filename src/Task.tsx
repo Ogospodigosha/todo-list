@@ -1,10 +1,12 @@
 import style from "./todolist.module.css";
 import {EditableSpan} from "./Components/EditableSpan";
 import {InArrayProps} from "./Todolist";
-import {Checkbox, IconButton} from "@material-ui/core";
+
 import { ChangeEvent } from "react";
 import React, {useCallback} from "react";
-import { Delete } from "@material-ui/icons";
+import {Checkbox, IconButton} from "@mui/material";
+import {Delete} from "@mui/icons-material";
+
 type TaskPropsType ={
     todolistId: string
     changeIsDone: (taskId: string, isDoneValue: boolean, todoListID: string)=>void
