@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8749a161-a449-4203-8a88-ee854411ab1e" name="Changes" comment="add test commit">
-      <change afterPath="$PROJECT_DIR$/../integration/app.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../integration/jest.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../integration/setupTests.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stories/AddItemForm.stories.tsx" afterDir="false" />
+    <list default="true" id="8749a161-a449-4203-8a88-ee854411ab1e" name="Changes" comment="add test commit1">
+      <change afterPath="$PROJECT_DIR$/api/Todolists-api.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stories/todolists-api.stories.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../yarn.lock" afterDir="false" />
@@ -36,18 +34,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/todo/todo-list&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\program Files\\WebStorm 2022.2.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/todo/todo-list/src",
+    "list.type.of.created.stylesheet": "CSS",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "D:\\program Files\\WebStorm 2022.2.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\it-incubator\todo-list\src" />
@@ -170,6 +168,10 @@
       <workItem from="1667431049666" duration="16000" />
       <workItem from="1667431066800" duration="46000" />
       <workItem from="1667477524414" duration="8000" />
+      <workItem from="1668033083124" duration="605000" />
+      <workItem from="1668033720186" duration="295000" />
+      <workItem from="1668098292204" duration="1040000" />
+      <workItem from="1668176927814" duration="9151000" />
     </task>
     <task id="LOCAL-00001" summary="add reaction checkbox">
       <created>1659981171761</created>
@@ -248,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666000957642</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add test commit1">
+      <created>1668033572061</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1668033572061</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,6 +285,7 @@
     <MESSAGE value="add tasksReducer and test" />
     <MESSAGE value="add useReducers" />
     <MESSAGE value="add test commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="add test commit" />
+    <MESSAGE value="add test commit1" />
+    <option name="LAST_COMMIT_MESSAGE" value="add test commit1" />
   </component>
 </project>
