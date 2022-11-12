@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8749a161-a449-4203-8a88-ee854411ab1e" name="Changes" comment="add test commit1">
-      <change afterPath="$PROJECT_DIR$/api/Todolists-api.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stories/todolists-api.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
+    <list default="true" id="8749a161-a449-4203-8a88-ee854411ab1e" name="Changes" comment="add axios and stories">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/Todolists-api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/Todolists-api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stories/todolists-api.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/stories/todolists-api.stories.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +169,7 @@
       <workItem from="1668033083124" duration="605000" />
       <workItem from="1668033720186" duration="295000" />
       <workItem from="1668098292204" duration="1040000" />
-      <workItem from="1668176927814" duration="9151000" />
+      <workItem from="1668176927814" duration="23321000" />
     </task>
     <task id="LOCAL-00001" summary="add reaction checkbox">
       <created>1659981171761</created>
@@ -257,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668033572061</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="add axios and stories">
+      <created>1668186897265</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1668186897265</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,6 +291,7 @@
     <MESSAGE value="add useReducers" />
     <MESSAGE value="add test commit" />
     <MESSAGE value="add test commit1" />
-    <option name="LAST_COMMIT_MESSAGE" value="add test commit1" />
+    <MESSAGE value="add axios and stories" />
+    <option name="LAST_COMMIT_MESSAGE" value="add axios and stories" />
   </component>
 </project>
