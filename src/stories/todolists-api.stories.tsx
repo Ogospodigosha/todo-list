@@ -78,7 +78,7 @@ export const UpdateTodolistTitle = () => {
         <button onClick={onClickHandler}>update todolist title</button>
     </div>
 }
-export const getTasks = () => {
+export const GetTasks = () => {
     const [state, setState] = useState<any>(null)
     const [todolistId, setTodolistId] = useState('')
     const onchangeHandler = (e: ChangeEvent<HTMLInputElement>) => {

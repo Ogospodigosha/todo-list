@@ -1,23 +1,24 @@
 import style from "./todolist.module.css";
 import {EditableSpan} from "./Components/EditableSpan";
-import {InArrayProps} from "./Todolist";
 
-import { ChangeEvent } from "react";
-import React, {useCallback} from "react";
+
+import React, {ChangeEvent, useCallback} from "react";
 import {Checkbox, IconButton} from "@mui/material";
 import {Delete} from "@mui/icons-material";
+import {TaskStatuses, TaskType} from "./api/Todolists-api";
 
 type TaskPropsType ={
     todolistId: string
-    changeIsDone: (taskId: string, isDoneValue: boolean, todoListID: string)=>void
+    changeIsDone: (taskId: string, status: TaskStatuses, todoListID: string)=>void
     changeTaskTitle: (taskId: string, newValue: string, todoListID: string)=>void
     removeTask: (taskId: string, todoListID: string)=>void
-    el: InArrayProps
+    el: TaskType
 }
 export const Task = React.memo((props: TaskPropsType)=> {
     console.log("Task")
     const changeIsDoneHendler=(event: ChangeEvent<HTMLInputElement>)=>{
-        props.changeIsDone(props.el.id, event.currentTarget.checked, props.todolistId)
+        let NewIsDoneValue =event.currentTarget.checked
+        props.changeIsDone(props.el.id, NewIsDoneValue ? TaskStatuses.Completed:TaskStatuses.New, props.todolistId)
     }
     const changeTitleHendler=useCallback((newValue: string)=>{
         props.changeTaskTitle(props.el.id, newValue, props.todolistId )
@@ -26,8 +27,8 @@ export const Task = React.memo((props: TaskPropsType)=> {
         return props.removeTask(id, props.todolistId)
     }
     return(
-        <div key={props.el.id} className={props.el.isDone ? style.isDone : ""}>
-            <Checkbox  onChange={changeIsDoneHendler} checked={props.el.isDone}/>
+        <div key={props.el.id} className={props.el.status === TaskStatuses.Completed ? style.isDone : ""}>
+            <Checkbox  onChange={changeIsDoneHendler} checked={props.el.status === TaskStatuses.Completed}/>
             <EditableSpan title={props.el.title} onChange={changeTitleHendler}/>
             <IconButton  onClick={()=>remomeTaskHandler(props.el.id)}>
                 <Delete />

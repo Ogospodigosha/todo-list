@@ -3,6 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import {action} from "@storybook/addon-actions";
 import {Task} from "../Task";
+import {TaskPriorities, TaskStatuses} from "../api/Todolists-api";
 
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -15,7 +16,8 @@ export default {
     changeIsDone: action('changeIsDone'),
     changeTaskTitle:  action('changeTaskTitle'),
     removeTask: action('removeTask'),
-    el: {id:"айди таски", title:'Html', isDone:true}
+    el: {id:"айди таски", title:'Html', status: TaskStatuses.Completed, description: "",
+      completed: true, deadline:'', priority: TaskPriorities.Low, startDate:'', addedDate: '', order:0, todoListId:"1"}
   },
 } as ComponentMeta<typeof Task>;
 
@@ -31,7 +33,8 @@ TaskIsDoneStory.args = {
 export const TaskIsNotDoneStory = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 TaskIsNotDoneStory.args = {
-    el: {id:"айди таски", title:'Html', isDone: false}
+    el: {id:"айди таски", title:'Html', status: TaskStatuses.New, description: "",
+      completed: true, deadline:'', priority: TaskPriorities.Low, startDate:'', addedDate: '', order:0, todoListId:"1"}
 };
 
 

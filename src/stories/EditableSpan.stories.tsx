@@ -5,7 +5,7 @@ import { Button } from './Button';
 import {AddItemForm} from "../Components/AddItemForm";
 import {action} from "@storybook/addon-actions";
 import {Task} from "../Task";
-import {InArrayProps} from "../Todolist";
+
 import {EditableSpan} from "../Components/EditableSpan";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
