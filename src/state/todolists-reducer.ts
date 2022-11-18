@@ -86,3 +86,27 @@ export const ChangeTodolistFilterAC =(id: string, filter: FilterValuesType): Cha
 export const GetTodolistsAC =(todolists:TodolistType[]): GetTodolistType =>{
     return {type:"GET-TODOLISTS", todolists} as const
 }
+export const deleteTodolistTC: any =(todoListID: string) => {
+   return (dispatch: Dispatch) => {
+        TodolistsApi.deleteTodolist(todoListID)
+            .then((res)=>{
+                dispatch(RemoveTodolistAC(todoListID))
+            })
+    }
+}
+export const addTodolistTC: any =(title: string) => {
+   return (dispatch: Dispatch) => {
+        TodolistsApi.createTodolist(title)
+            .then((res)=>{
+                dispatch(AddTodolistAC(title))
+            })
+    }
+}
+export const changeTodolistTitleTC: any =(todoListID: string, title: string) => {
+   return (dispatch: Dispatch) => {
+        TodolistsApi.updateTodolistTitle(todoListID, title)
+            .then((res)=>{
+                dispatch(ChangeTodolistAC(todoListID, title))
+            })
+    }
+}
