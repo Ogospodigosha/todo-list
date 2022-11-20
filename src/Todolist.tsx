@@ -10,6 +10,7 @@ import {FilterValuesType} from "./state/todolists-reducer";
 import {TaskStatuses, TaskType} from "./api/Todolists-api";
 import {useDispatch} from "react-redux";
 import {fetchTaskTC} from "./state/tasks-reducer";
+import {useAppDispatch} from "./state/store";
 
 
 
@@ -32,7 +33,7 @@ export type TodolistProsType ={
 
 
 export const Todolist=React.memo( (props: TodolistProsType )=> {
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
     console.log("todolist is called")
       const onAllClickHandler = useCallback((todoListID: string)=>{
         props.changetodoListsFilter('all', props.id)

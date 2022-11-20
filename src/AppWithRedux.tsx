@@ -20,7 +20,7 @@ import {
     RemoveTaskActionType, removeTaskTC, updateTaskTC,
 } from "./state/tasks-reducer";
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootState} from "./state/store";
+import {AppRootState, useAppDispatch} from "./state/store";
 import {AppBar, Button, Container, Grid, IconButton, Paper, Toolbar, Typography} from '@mui/material';
 import {Menu} from "@mui/icons-material";
 import {TaskStatuses, TaskType, TodolistsApi} from "./api/Todolists-api";
@@ -36,7 +36,7 @@ export function AppWithRedux() {
 
 
     console.log("AppWithRedux is coled")
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
     const todoLists = useSelector<AppRootState, Array<TodolistDomainType>>(state => state.todolists)
     const tasks = useSelector<AppRootState, TaskStateType>(state => state.tasks)
 

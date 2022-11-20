@@ -10,6 +10,7 @@ import {
 
 
 
+
 test('correct todolist should be removed', ()=> {
     const todoListID_1 = v1();
     const todoListID_2 = v1();
@@ -30,7 +31,8 @@ test('correct todolist should be added', ()=>{
         {id: todoListID_1, title: "What to learn", filter: "all", order:0, addedDate: ''},
         {id: todoListID_2, title: "What to Buy", filter: "all", order:0, addedDate: ''}
     ]
-    const endState =todolistsReducer(startState, AddTodolistAC(newTodolistTitle))
+    let todolist = {id: v1(), title: "New todolist", addedDate: '', order: 0}
+    const endState =todolistsReducer(startState, AddTodolistAC(todolist))
 
     expect(endState.length).toBe(3);
     expect(endState[2].title).toBe(newTodolistTitle)
