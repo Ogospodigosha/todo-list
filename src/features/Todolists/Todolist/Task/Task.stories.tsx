@@ -2,8 +2,8 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import {action} from "@storybook/addon-actions";
-import {Task} from "../Task";
-import {TaskPriorities, TaskStatuses} from "../api/Todolists-api";
+import {Task} from "./Task";
+import {TaskPriorities, TaskStatuses} from "../../../../api/Todolists-api";
 
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

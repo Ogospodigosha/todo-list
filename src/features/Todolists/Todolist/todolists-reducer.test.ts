@@ -3,7 +3,7 @@ import { v1 } from "uuid"
 import {
     AddTodolistAC, ChangeTodolistAC,
     ChangeTodolistFilterAC,
-    ChangeTodolistFilterActionType, FilterValuesType, RemoveTodolistAC, TodolistDomainType,
+    FilterValuesType, RemoveTodolistAC, TodolistDomainType,
     todolistsReducer
 } from "./todolists-reducer";
 
@@ -62,7 +62,7 @@ test('correct filter of todolist should be changed', ()=>{
         {id: todoListID_1, title: "What to learn", filter: "all", order:0, addedDate: ''},
         {id: todoListID_2, title: "What to Buy", filter: "all", order:0, addedDate: ''}
     ]
-    const action:  ChangeTodolistFilterActionType= ChangeTodolistFilterAC(todoListID_2,newFilter )
+    const action = ChangeTodolistFilterAC(todoListID_2,newFilter )
     const endState = todolistsReducer(startState, action)
     expect(endState[0].filter).toBe("all")
     expect(endState[1].filter).toBe("completed")

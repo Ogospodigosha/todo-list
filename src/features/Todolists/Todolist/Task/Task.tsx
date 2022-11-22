@@ -1,11 +1,11 @@
-import style from "./todolist.module.css";
-import {EditableSpan} from "./Components/EditableSpan";
+import style from "../../../../todolist.module.css";
+import {EditableSpan} from "../../../../Components/EditableSpan/EditableSpan";
 
 
 import React, {ChangeEvent, useCallback} from "react";
 import {Checkbox, IconButton} from "@mui/material";
 import {Delete} from "@mui/icons-material";
-import {TaskStatuses, TaskType} from "./api/Todolists-api";
+import {TaskStatuses, TaskType} from "../../../../api/Todolists-api";
 
 type TaskPropsType ={
     todolistId: string

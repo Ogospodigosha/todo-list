@@ -1,12 +1,12 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Button } from './Button';
-import {AddItemForm} from "../Components/AddItemForm";
+import { Button } from '../../stories/Button';
+import {AddItemForm} from "../AddItemForm/AddItemForm";
 import {action} from "@storybook/addon-actions";
-import {Task} from "../Task";
+import {Task} from "../../features/Todolists/Todolist/Task/Task";
 
-import {EditableSpan} from "../Components/EditableSpan";
+import {EditableSpan} from "./EditableSpan";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

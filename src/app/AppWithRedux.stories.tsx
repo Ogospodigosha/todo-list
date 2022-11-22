@@ -1,11 +1,11 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import AppWithRedux from "../AppWithRedux";
+import AppWithRedux from "./AppWithRedux";
 import {Provider} from "react-redux";
-import {AppRootState, store} from "../state/store";
+import {AppRootState, store} from "./store";
 import {combineReducers, legacy_createStore} from "redux";
-import {tasksReducer} from "../state/tasks-reducer";
-import {todolistsReducer} from "../state/todolists-reducer";
+import {tasksReducer} from "../features/Todolists/Todolist/tasks-reducer";
+import {todolistsReducer} from "../features/Todolists/Todolist/todolists-reducer";
 import {v1} from "uuid";
 import {ReduxStoreProviderDecorator} from "../state/ReduxStoreProviderDecorator";
 

@@ -1,8 +1,8 @@
 
-import {addTaskAC, ChangeTaskStatusAC, ChangeTaskTitleAC, removeTaskAC, tasksReducer} from "./tasks-reducer";
+import {addTaskAC, changeTaskStatusAC, removeTaskAC, tasksReducer} from "./tasks-reducer";
 import {AddTodolistAC, RemoveTodolistAC} from "./todolists-reducer";
-import {TaskStateType} from "../AppWithRedux";
-import {TaskPriorities, TaskStatuses} from "../api/Todolists-api";
+import {TaskStateType} from "../../../app/AppWithRedux";
+import {TaskPriorities, TaskStatuses} from "../../../api/Todolists-api";
 import {v1} from "uuid";
 
 test('correct task should be removed', () => {
@@ -78,7 +78,7 @@ test('status of specified task should be changed', () => {
                 completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.New}
         ]
     }
-    const action = ChangeTaskStatusAC("3", {status: TaskStatuses.Completed}, "todoListID_2")
+    const action = changeTaskStatusAC("3", {status: TaskStatuses.Completed}, "todoListID_2")
     const endState = tasksReducer(startState, action)
     expect(endState["todoListID_2"][2].status).toBe(2)
     expect(endState["todoListID_2"].every(el=> el.status)).toBeTruthy()
@@ -103,7 +103,7 @@ test('title of specified task should be changed', () => {
                 completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.New}
         ]
     }
-    const action = ChangeTaskStatusAC( "2", {title: "What i want"}, "todoListID_1")
+    const action = changeTaskStatusAC( "2", {title: "What i want"}, "todoListID_1")
     const endState = tasksReducer(startState, action)
     expect(endState["todoListID_1"][1].title).toBe("What i want")
     expect(endState["todoListID_2"][1].title).toBe("Tea")
