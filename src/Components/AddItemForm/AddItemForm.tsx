@@ -1,14 +1,13 @@
-import style from "./todolist.module.css";
-
 import React, {ChangeEvent} from "react";
 import  {useState, KeyboardEvent} from 'react';
-
 import {ControlPoint} from "@mui/icons-material";
 import {IconButton, TextField} from "@mui/material";
+import {RequestStatusType} from "../../app/app-reducer";
 
 
 type addItemFormPropsType = {
     addItem: (title: string) => void
+    entityStatus?: RequestStatusType
 
 }
 export const AddItemForm = React.memo((props: addItemFormPropsType) => {
@@ -51,9 +50,10 @@ export const AddItemForm = React.memo((props: addItemFormPropsType) => {
                    onKeyPress={onKeyPressHandler}
                    error={!!error}
                    helperText={error}
+                   disabled={props.entityStatus === "loading"}
         />
 
-        <IconButton  color={"primary"} onClick={addTaskHandler}>
+        <IconButton  color={"primary"} onClick={addTaskHandler} disabled={props.entityStatus === "loading"}>
             <ControlPoint/>
         </IconButton>
         {/*{error && <div className={style.errorMessage}>{error}</div>}*/}

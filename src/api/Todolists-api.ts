@@ -1,4 +1,5 @@
 import axios from "axios";
+import {RequestStatusType} from "../app/app-reducer";
 
 
 
@@ -61,6 +62,7 @@ export type TaskType = {
     todoListId: string
     order: number
     addedDate: string
+    entityStatus: RequestStatusType
 }
 type GetTasksResponse = {
     totalCount: number

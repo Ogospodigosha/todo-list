@@ -7,7 +7,7 @@ import {combineReducers, legacy_createStore} from "redux";
 import {tasksReducer} from "../features/Todolists/Todolist/tasks-reducer";
 import {todolistsReducer} from "../features/Todolists/Todolist/todolists-reducer";
 import {v1} from "uuid";
-import {ReduxStoreProviderDecorator} from "../state/ReduxStoreProviderDecorator";
+import {ReduxStoreProviderDecorator} from "./ReduxStoreProviderDecorator";
 
 export default {
   title: 'Todolists/AppWithRedux',

@@ -11,6 +11,7 @@ import {TaskStatuses, TaskType} from "../../../api/Todolists-api";
 
 import {fetchTaskTC} from "./tasks-reducer";
 import {useAppDispatch} from "../../../app/store";
+import {RequestStatusType} from "../../../app/app-reducer";
 
 
 
@@ -26,6 +27,7 @@ export type TodolistProsType ={
     id: string
     deleteTodolist: (todoListID: string)=> void
     changeTodolistTitle: (todoListID: string, title: string)=> void
+    entityStatus: RequestStatusType
 
 }
 
@@ -66,14 +68,14 @@ export const Todolist=React.memo( (props: TodolistProsType )=> {
     return (
     <div>
         <h3>
-            <EditableSpan title={props.title} onChange={changeTodolistTitle}/>
-            <IconButton  onClick={deleteTaskHendler}>
+            <EditableSpan title={props.title} onChange={changeTodolistTitle} entityStatus={props.entityStatus}/>
+            <IconButton  onClick={deleteTaskHendler} disabled={props.entityStatus === "loading"}>
                 <Delete />
             </IconButton>
         </h3>
-        <AddItemForm addItem={addTask} />
+        <AddItemForm addItem={addTask}  entityStatus={props.entityStatus}/>
         <div>
-            {tasksForTodolist.map((el)=><Task key ={el.id} todolistId={props.id} changeIsDone={props.changeIsDone} changeTaskTitle={props.changeTaskTitle}  removeTask={props.removeTask} el={el}/>)}
+            {tasksForTodolist.map((el)=><Task key ={el.id} todolistId={props.id} changeIsDone={props.changeIsDone} changeTaskTitle={props.changeTaskTitle}  removeTask={props.removeTask} el={el} />)}
         </div>
         <div>
             <Button variant={props.filter==="all" ? "contained" : "text"}  onClick={()=>onAllClickHandler(props.id)}>All</Button>

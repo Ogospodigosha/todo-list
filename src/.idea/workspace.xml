@@ -1,20 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8749a161-a449-4203-8a88-ee854411ab1e" name="Changes" comment="refactor stories">
+    <list default="true" id="8749a161-a449-4203-8a88-ee854411ab1e" name="Changes" comment="add reaction">
+      <change afterPath="$PROJECT_DIR$/Components/ErrorSnackBar/ErrorSnackBar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app-reducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/error-utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppWithRedux.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/AppWithRedux.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Task.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Todolist.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/AddItemForm/AddItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/AddItemForm/AddItemForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/EditableSpan/EditableSpan.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/EditableSpan/EditableSpan.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/Todolists-api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/Todolists-api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/state/ReduxStoreProviderDecorator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/state/ReduxStoreProviderDecorator.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/state/tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/state/tasks-reducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/state/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/state/tasks-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/state/todolists-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/state/todolists-reducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/state/todolists-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/state/todolists-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/state/todolists-tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/state/todolists-tasks-reducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stories/EditableSpan.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/stories/EditableSpan.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stories/Task.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/stories/Task.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AppWithRedux.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppWithRedux.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AppWithRedux.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppWithRedux.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/Todolists/Todolist/Task/Task.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/Todolists/Todolist/Task/Task.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/Todolists/Todolist/Task/Task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/Todolists/Todolist/Task/Task.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/Todolists/Todolist/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/Todolists/Todolist/Todolist.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/Todolists/Todolist/tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/Todolists/Todolist/tasks-reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/Todolists/Todolist/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/Todolists/Todolist/tasks-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/Todolists/Todolist/todolists-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/Todolists/Todolist/todolists-reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/Todolists/Todolist/todolists-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/Todolists/Todolist/todolists-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/Todolists/TodolistsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/Todolists/TodolistsList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/state/ReduxStoreProviderDecorator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/ReduxStoreProviderDecorator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/state/user-reducer.test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/state/user-reducer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,18 +52,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/todo/todo-list",
-    "list.type.of.created.stylesheet": "CSS",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "D:\\program Files\\WebStorm 2022.2.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/todo/todo-list/package.json&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\program Files\\WebStorm 2022.2.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\it-incubator\todo-list\src" />
@@ -65,6 +75,23 @@
       <recent name="D:\it-incubator\todo-list\src\EditableSpan.tsx" />
       <recent name="D:\it-incubator\todo-list\src\AddItemForm.tsx" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/../package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="test" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.test" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -183,6 +210,8 @@
       <workItem from="1668253177905" duration="597000" />
       <workItem from="1668267345025" duration="32000" />
       <workItem from="1668525896035" duration="9829000" />
+      <workItem from="1669404176758" duration="5951000" />
+      <workItem from="1669457218784" duration="3937000" />
     </task>
     <task id="LOCAL-00001" summary="add reaction checkbox">
       <created>1659981171761</created>
@@ -313,6 +342,7 @@
     <MESSAGE value="add test commit1" />
     <MESSAGE value="add axios and stories" />
     <MESSAGE value="refactor stories" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor stories" />
+    <MESSAGE value="add reaction" />
+    <option name="LAST_COMMIT_MESSAGE" value="add reaction" />
   </component>
 </project>

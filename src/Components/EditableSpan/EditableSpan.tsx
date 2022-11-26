@@ -1,10 +1,12 @@
 
 import React, {ChangeEvent, useState} from "react";
 import {TextField} from "@mui/material";
+import {RequestStatusType} from "../../app/app-reducer";
 
 type EditableSpanPropsType = {
     title: string
-    onChange: (NewValue:string)=> void
+    onChange: (NewValue:string, editMode: boolean)=> void
+    entityStatus?: RequestStatusType
 }
 export const EditableSpan = React.memo((props: EditableSpanPropsType) => {
     console.log("EditableSpan")
@@ -16,12 +18,12 @@ export const EditableSpan = React.memo((props: EditableSpanPropsType) => {
     }
     const activateViewMode = ()=>{
         setEditMode(false)
-        props.onChange(title);
+        props.onChange(title, editMode);
     }
     const onchangeHandler = (event: ChangeEvent<HTMLInputElement>)=>{
         setTitle(event.currentTarget.value)
     }
-    return editMode
-        ? <TextField value={title} onChange={onchangeHandler} onBlur={activateViewMode} autoFocus/>
+    return editMode && props.entityStatus !== "loading"
+        ?   <TextField value={title} onChange={onchangeHandler} onBlur={activateViewMode} autoFocus />
         : <span onDoubleClick={activateEditMode}>{props.title}</span>
 });

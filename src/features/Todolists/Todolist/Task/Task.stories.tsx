@@ -17,7 +17,7 @@ export default {
     changeTaskTitle:  action('changeTaskTitle'),
     removeTask: action('removeTask'),
     el: {id:"айди таски", title:'Html', status: TaskStatuses.Completed, description: "",
-      completed: true, deadline:'', priority: TaskPriorities.Low, startDate:'', addedDate: '', order:0, todoListId:"1"}
+      completed: true, deadline:'', priority: TaskPriorities.Low, startDate:'', addedDate: '', order:0, todoListId:"1", entityStatus:"idle"}
   },
 } as ComponentMeta<typeof Task>;
 
@@ -34,7 +34,7 @@ export const TaskIsNotDoneStory = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 TaskIsNotDoneStory.args = {
     el: {id:"айди таски", title:'Html', status: TaskStatuses.New, description: "",
-      completed: true, deadline:'', priority: TaskPriorities.Low, startDate:'', addedDate: '', order:0, todoListId:"1"}
+      completed: true, deadline:'', priority: TaskPriorities.Low, startDate:'', addedDate: '', order:0, todoListId:"1", entityStatus:"idle"}
 };
 
 
