@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
-import {AppBar, Button, Container, IconButton, LinearProgress, Toolbar, Typography} from '@mui/material';
+import {AppBar, Button, CircularProgress, Container, IconButton, LinearProgress, Toolbar, Typography} from '@mui/material';
 import {Menu} from "@mui/icons-material";
 import {TaskType} from "../api/Todolists-api";
 import {TodolistsList} from "../features/Todolists/TodolistsList";
 import {useSelector} from "react-redux";
-import {AppRootState, useAppSelector} from "./store";
+import {AppRootState, useAppDispatch, useAppSelector} from "./store";
 import {CustomizedSnackbars} from "../Components/ErrorSnackBar/ErrorSnackBar";
-import {RequestStatusType} from "./app-reducer";
+import {initializeAppTC, RequestStatusType} from "./app-reducer";
+import {Navigate, Route, Routes } from 'react-router-dom';
+import {Login} from "../features/Login/Login";
+import {logoutTC} from "../features/Login/authReducer";
 
 
 export type TaskStateType = {
@@ -16,8 +19,23 @@ export type TaskStateType = {
 
 
 export function AppWithRedux() {
+    const dispatch= useAppDispatch()
     let appStatus = useSelector<AppRootState,RequestStatusType >(state => state.app.status)
+    let isInitialized = useSelector<AppRootState, boolean>(state => state.auth.isInitialized)
+    const isLoggedIn = useSelector<AppRootState, boolean>(state => state.auth.isLoggedIn)
     console.log("AppWithRedux is coled")
+    useEffect(()=>{
+        dispatch(initializeAppTC())
+    },[])
+    if (!isInitialized) {
+        return <div
+            style={{position: 'fixed', top: '30%', textAlign: 'center', width: '100%'}}>
+            <CircularProgress/>
+        </div>
+    }
+    const logout = () =>{
+        dispatch(logoutTC())
+    }
     return (
         <div className="App">
             <CustomizedSnackbars/>
@@ -29,12 +47,18 @@ export function AppWithRedux() {
                     <Typography variant="h6">
                         News
                     </Typography>
-                    <Button color="inherit">Login</Button>
+                    {isLoggedIn && <Button color="inherit" onClick={logout}>logout</Button>}
                 </Toolbar>
             </AppBar>
             {appStatus === "loading" && <LinearProgress color={'secondary'}/>}
             <Container>
-                <TodolistsList/>
+                <Routes>
+                    <Route path={'/'} element={<TodolistsList/>}/>
+                    <Route path={'/login'} element={<Login/>}/>
+
+                    <Route path={'/404'} element={<h1>404: PAGE NOT FOUND</h1>}/>
+                    <Route path={'*'} element={<Navigate to={'/404'}/>}/>
+                </Routes>
             </Container>
         </div>
     );

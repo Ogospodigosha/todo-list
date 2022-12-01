@@ -30,7 +30,8 @@ const initialGlobalState: AppRootState = {
             {id: v1(), title: 'React Book', description:'', addedDate: "", todoListId: 'todolistId2', completed: true, order: 0, startDate:"", priority:TaskPriorities.Low, deadline:"", status: TaskStatuses.Completed, entityStatus:"idle"}
         ]
     },
-    app: {status: "idle", error: null}
+    app: {status: "idle", error: null, },
+    auth: {isLoggedIn: false, isInitialized: false}
 }
 
 export const storyBookStore = legacy_createStore(rootReducer, initialGlobalState, applyMiddleware(thunk));

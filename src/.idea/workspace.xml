@@ -2,28 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8749a161-a449-4203-8a88-ee854411ab1e" name="Changes" comment="add reaction">
-      <change afterPath="$PROJECT_DIR$/Components/ErrorSnackBar/ErrorSnackBar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/app-reducer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/error-utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/features/Login/Login.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/features/Login/authReducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/AddItemForm/AddItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/AddItemForm/AddItemForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/EditableSpan/EditableSpan.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Components/EditableSpan/EditableSpan.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/Todolists-api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/Todolists-api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/AppWithRedux.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppWithRedux.stories.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/AppWithRedux.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppWithRedux.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ReduxStoreProviderDecorator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/ReduxStoreProviderDecorator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/app-reducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/Todolists/Todolist/Task/Task.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/Todolists/Todolist/Task/Task.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/Todolists/Todolist/Task/Task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/Todolists/Todolist/Task/Task.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/Todolists/Todolist/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/Todolists/Todolist/Todolist.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/Todolists/Todolist/tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/Todolists/Todolist/tasks-reducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/Todolists/Todolist/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/Todolists/Todolist/tasks-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/Todolists/Todolist/todolists-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/Todolists/Todolist/todolists-reducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/Todolists/Todolist/todolists-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/Todolists/Todolist/todolists-reducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/features/Todolists/TodolistsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/Todolists/TodolistsList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/state/ReduxStoreProviderDecorator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/ReduxStoreProviderDecorator.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/state/user-reducer.test.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/state/user-reducer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +46,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/todo/todo-list/package.json&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/todo/todo-list/src&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;ts.external.directory.path&quot;: &quot;D:\\program Files\\WebStorm 2022.2.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
@@ -212,6 +201,11 @@
       <workItem from="1668525896035" duration="9829000" />
       <workItem from="1669404176758" duration="5951000" />
       <workItem from="1669457218784" duration="3937000" />
+      <workItem from="1669499368678" duration="24000" />
+      <workItem from="1669624378063" duration="373000" />
+      <workItem from="1669642352666" duration="12000" />
+      <workItem from="1669822672361" duration="704000" />
+      <workItem from="1669895935888" duration="19374000" />
     </task>
     <task id="LOCAL-00001" summary="add reaction checkbox">
       <created>1659981171761</created>
