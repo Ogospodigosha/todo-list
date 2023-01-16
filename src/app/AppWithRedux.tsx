@@ -7,10 +7,10 @@ import {TodolistsList} from "../features/Todolists/TodolistsList";
 import {useSelector} from "react-redux";
 import {AppRootState, useAppDispatch, useAppSelector} from "./store";
 import {CustomizedSnackbars} from "../Components/ErrorSnackBar/ErrorSnackBar";
-import {initializeAppTC, RequestStatusType} from "./app-reducer";
+import { RequestStatusType} from "./app-reducer";
 import {Navigate, Route, Routes } from 'react-router-dom';
 import {Login} from "../features/Login/Login";
-import {logoutTC} from "../features/Login/authReducer";
+import {initializeAppTC, logoutTC} from "../features/Login/authReducer";
 
 
 export type TaskStateType = {

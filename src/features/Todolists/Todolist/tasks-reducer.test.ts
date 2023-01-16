@@ -129,7 +129,7 @@ test('new property with new array should be added when new todolist is added', (
         ]
     }
     let todolist = {id: "todoListID_3", title: "new todolist", addedDate: "", order: 0}
-    const action = AddTodolistAC( todolist)
+    const action = AddTodolistAC({todolist :todolist})
     const endState = tasksReducer(startState, action)
     const keys = Object.keys(endState);
     const newKey = keys.find(el => el !== "todoListID_1" &&  el !== "todoListID_2" )
@@ -160,7 +160,7 @@ test('property with todolistID should be deleted', () => {
                 completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.New, entityStatus:"idle"}
         ]
     }
-    const action = RemoveTodolistAC( 'todoListID_2')
+    const action = RemoveTodolistAC({todolistId :'todoListID_2'})
     const endState = tasksReducer(startState, action)
     const keys = Object.keys(endState);
 

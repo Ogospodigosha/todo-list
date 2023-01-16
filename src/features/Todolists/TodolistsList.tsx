@@ -25,7 +25,7 @@ export const TodolistsList: React.FC = () => {
     const tasks = useSelector<AppRootState, TaskStateType>(state => state.tasks)
 
     const changetodoListsFilter = useCallback((value: FilterValuesType, todoListID: string) => {
-        dispatch(ChangeTodolistFilterAC(todoListID, value))
+        dispatch(ChangeTodolistFilterAC({id :todoListID, filter :value}))
     }, [dispatch])
     const removeTask = useCallback((taskId: string, todoListID: string) => {
         const thunk = removeTaskTC(taskId, todoListID)

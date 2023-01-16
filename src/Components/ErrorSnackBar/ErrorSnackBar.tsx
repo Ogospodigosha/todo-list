@@ -9,7 +9,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
     props,
     ref,
 ) {
-    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+    return <MuiAlert elevation={2} ref={ref} variant="filled" {...props} />;
 });
 
 export const  CustomizedSnackbars = () => {
@@ -19,7 +19,7 @@ export const  CustomizedSnackbars = () => {
         if (reason === "ckickaway") {
             return;
         }
-            dispatch(SetAppErrorAC(null))
+            dispatch(SetAppErrorAC({error: null}))
     };
 
     return (<>

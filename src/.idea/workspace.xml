@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8749a161-a449-4203-8a88-ee854411ab1e" name="Changes" comment="add reaction">
-      <change afterPath="$PROJECT_DIR$/features/Login/Login.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/features/Login/authReducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
+    <list default="true" id="8749a161-a449-4203-8a88-ee854411ab1e" name="Changes" comment="feat: add">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/Todolists-api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/Todolists-api.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/AppWithRedux.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppWithRedux.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ReduxStoreProviderDecorator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/ReduxStoreProviderDecorator.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/app-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/app-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/Todolists/TodolistsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/features/Todolists/TodolistsList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/Login/authReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/features/Login/authReducer.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,18 +34,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/todo/todo-list/src&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\program Files\\WebStorm 2022.2.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/it-incubator/friday-project/src",
+    "list.type.of.created.stylesheet": "CSS",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "D:\\program Files\\WebStorm 2022.2.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\it-incubator\todo-list\src" />
@@ -205,7 +198,31 @@
       <workItem from="1669624378063" duration="373000" />
       <workItem from="1669642352666" duration="12000" />
       <workItem from="1669822672361" duration="704000" />
-      <workItem from="1669895935888" duration="19374000" />
+      <workItem from="1669895935888" duration="19623000" />
+      <workItem from="1669924022390" duration="1807000" />
+      <workItem from="1670239871288" duration="36000" />
+      <workItem from="1670242174645" duration="3568000" />
+      <workItem from="1670330388566" duration="101000" />
+      <workItem from="1670331869644" duration="248000" />
+      <workItem from="1670339817088" duration="49000" />
+      <workItem from="1670424424599" duration="645000" />
+      <workItem from="1670674335102" duration="21000" />
+      <workItem from="1670684574556" duration="426000" />
+      <workItem from="1670690007667" duration="21000" />
+      <workItem from="1670713429134" duration="143000" />
+      <workItem from="1670714389390" duration="78000" />
+      <workItem from="1670717486334" duration="85000" />
+      <workItem from="1670718375800" duration="46000" />
+      <workItem from="1670770135708" duration="243000" />
+      <workItem from="1670772269239" duration="1232000" />
+      <workItem from="1670779420971" duration="41000" />
+      <workItem from="1670781802779" duration="36000" />
+      <workItem from="1670801166914" duration="781000" />
+      <workItem from="1670803048212" duration="779000" />
+      <workItem from="1670943261343" duration="125000" />
+      <workItem from="1671113045983" duration="196000" />
+      <workItem from="1671115090826" duration="629000" />
+      <workItem from="1671140981757" duration="143000" />
     </task>
     <task id="LOCAL-00001" summary="add reaction checkbox">
       <created>1659981171761</created>
@@ -305,7 +322,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668211367968</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="add form">
+      <created>1669918859402</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1669918859402</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,6 +361,7 @@
     <MESSAGE value="add axios and stories" />
     <MESSAGE value="refactor stories" />
     <MESSAGE value="add reaction" />
-    <option name="LAST_COMMIT_MESSAGE" value="add reaction" />
+    <MESSAGE value="add form" />
+    <option name="LAST_COMMIT_MESSAGE" value="add form" />
   </component>
 </project>
