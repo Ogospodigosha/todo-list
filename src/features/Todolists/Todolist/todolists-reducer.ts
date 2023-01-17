@@ -47,31 +47,7 @@ const slice = createSlice({
 })
 export const {RemoveTodolistAC, AddTodolistAC, ChangeTodolistAC, ChangeTodolistFilterAC, GetTodolistsAC, ChangeTodolistEntityStatusAC } = slice.actions
 export const todolistsReducer = slice.reducer
-// export const todolistsReducer = (state: Array<TodolistDomainType> = initialState, action: ActionsType):TodolistDomainType[] => {
-//     switch (action.type) {
-//         case "REMOVE-TODOLIST":
-//            return state.filter(el => el.id !== action.id);
-//         case "ADD-TODOLIST":
-//             return [...state, {...action.todolist, filter: 'all', entityStatus: "idle"}];
-//         case "CHANGE-TODOLIST-TITLE":
-//             return state.map(el => el.id === action.id ? {...el, title: action.title}: el);
-//         case 'CHANGE-TODOLIST-FILTER':
-//             return state.map(el => el.id === action.id ? {...el, filter: action.filter}: el);
-//         case 'GET-TODOLISTS':
-//             return action.todolists.map(el => ({...el, filter: 'all', entityStatus: "idle"}))
-//         case "CHANGE-TODOLIST-ENTITY-STATUS":
-//             return state.map(el => el.id === action.id ? {...el, entityStatus: action.status}: el)
-//         default :
-//             return state
-//     }
-// }
-//actions
-// export const RemoveTodolistAC =(todolistId: string) =>({type: "REMOVE-TODOLIST", id: todolistId}) as const
-// export const AddTodolistAC =(todolist: TodolistType) => ({type: "ADD-TODOLIST", todolist }) as const
-// export const ChangeTodolistAC =(id: string, title: string) => ({type: "CHANGE-TODOLIST-TITLE", id, title}) as const
-// export const ChangeTodolistFilterAC =(id: string, filter: FilterValuesType) =>({type:"CHANGE-TODOLIST-FILTER", id, filter}) as const
-// export const GetTodolistsAC =(todolists:TodolistType[])  => ({type:"GET-TODOLISTS", todolists}) as const
-// export const ChangeTodolistEntityStatusAC = (id: string, status:RequestStatusType) => ({type:'CHANGE-TODOLIST-ENTITY-STATUS', id, status} as const)
+
 //thunks
 export const deleteTodolistTC = (todoListID: string) => (dispatch: Dispatch) => {
     dispatch(SetAppStatusAC({status:'loading'}))

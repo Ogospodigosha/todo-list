@@ -63,6 +63,7 @@ export const Todolist=React.memo( (props: TodolistProsType )=> {
         tasksForTodolist = props.tasks.filter(el => el.status)
     }
     useEffect(()=>{
+        debugger
         dispatch(fetchTaskTC(props.id))
     },[])
     return (
