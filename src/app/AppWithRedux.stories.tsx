@@ -7,12 +7,12 @@ import {combineReducers, legacy_createStore} from "redux";
 import {tasksReducer} from "../features/Todolists/Todolist/tasks-reducer";
 import {todolistsReducer} from "../features/Todolists/Todolist/todolists-reducer";
 import {v1} from "uuid";
-import {ReduxStoreProviderDecorator} from "./ReduxStoreProviderDecorator";
+import {BrowserRouterDecorator, ReduxStoreProviderDecorator} from "./ReduxStoreProviderDecorator";
 
 export default {
   title: 'Todolists/AppWithRedux',
   component: AppWithRedux,
-  decorators: [ReduxStoreProviderDecorator]
+  decorators: [ReduxStoreProviderDecorator, BrowserRouterDecorator]
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
 } as ComponentMeta<typeof AppWithRedux>;
 

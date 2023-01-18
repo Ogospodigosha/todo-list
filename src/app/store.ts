@@ -16,6 +16,7 @@ export const useAppSelector:TypedUseSelectorHook<AppRootState> = useSelector
      app: appReducer,
      auth: authReducer
  })
+export type RootReducerType = typeof rootReducer
 // export const store =legacy_createStore(rootReducer, applyMiddleware(thunk))
 export const store = configureStore({
     reducer: rootReducer,
