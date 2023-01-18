@@ -1,12 +1,13 @@
 
-import {addTaskAC,  changeTaskStatusAC, removeTaskAC, tasksReducer} from "./tasks-reducer";
+import {addTaskAC, changeTaskStatusAC, fetchTaskTC, removeTaskAC, tasksReducer} from "./tasks-reducer";
 import {AddTodolistAC, RemoveTodolistAC} from "./todolists-reducer";
 import {TaskStateType} from "../../../app/AppWithRedux";
 import {TaskPriorities, TaskStatuses} from "../../../api/Todolists-api";
 import {v1} from "uuid";
 
-test('correct task should be removed', () => {
-    const startState: TaskStateType = {
+let startState: TaskStateType = {}
+beforeEach(()=>{
+    startState = {
         "todoListID_1": [
             {id: "1", title: "HTML",  todoListId: "todoListID_1", addedDate:'', startDate: "",
                 completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.Completed, entityStatus:"idle"},
@@ -24,6 +25,9 @@ test('correct task should be removed', () => {
                 completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.New, entityStatus:"idle"}
         ]
     }
+})
+
+test('correct task should be removed', () => {
     const action = removeTaskAC({todolistID :"todoListID_1",taskID: "2"})
     const endState = tasksReducer(startState, action)
     expect(endState["todoListID_2"][1].id).toBe("2")
@@ -31,26 +35,8 @@ test('correct task should be removed', () => {
 })
 
 test('correct task should be add', () => {
-    const startState: TaskStateType = {
-        "todoListID_1": [
-            {id: "1", title: "HTML", todoListId: "todoListID_1", addedDate:'', startDate: "",
-                completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.Completed, entityStatus:"idle"},
-            {id: "2", title: "CSS", todoListId: "todoListID_1", addedDate:'', startDate: "",
-                completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.Completed, entityStatus:"idle"},
-            {id: "3", title: "JS/TS", todoListId: "todoListID_1", addedDate:'', startDate: "",
-                completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.New, entityStatus:"idle"}
-        ],
-        "todoListID_2": [
-            {id: "1", title: "Book", todoListId: "todoListID_2", addedDate:'', startDate: "",
-                completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.Completed, entityStatus:"idle"},
-            {id: "2", title: "Tea", todoListId: "todoListID_2", addedDate:'', startDate: "",
-                completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.Completed, entityStatus:"idle"},
-            {id: "3", title: "Beer", todoListId: "todoListID_2", addedDate:'', startDate: "",
-                completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.New, entityStatus:"idle"}
-        ]
-    }
-    let task  =
-        {description: "", title: 'Gosha', completed: true, status: TaskStatuses.New,
+
+    let task  = {description: "", title: 'Gosha', completed: true, status: TaskStatuses.New,
             priority: 0, startDate: "", deadline: "", id: v1(), todoListId: v1(), order: 0, addedDate: "", entityStatus:"idle"}as const
     const action = addTaskAC({ title :"Gosha",todolistID: "todoListID_2", task})
     const endState = tasksReducer(startState, action)
@@ -60,24 +46,6 @@ test('correct task should be add', () => {
 })
 
 test('status of specified task should be changed', () => {
-    const startState: TaskStateType = {
-        "todoListID_1": [
-            {id: "1", title: "HTML", todoListId: "todoListID_1", addedDate:'', startDate: "",
-                completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.Completed, entityStatus:"idle"  },
-            {id: "2", title: "CSS", todoListId: "todoListID_1", addedDate:'', startDate: "",
-                completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.Completed, entityStatus:"idle" },
-            {id: "3", title: "JS/TS", todoListId: "todoListID_1", addedDate:'', startDate: "",
-                completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.New, entityStatus:"idle" }
-        ],
-        "todoListID_2": [
-            {id: "1", title: "Book", todoListId: "todoListID_2", addedDate:'', startDate: "",
-                completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.Completed, entityStatus:"idle" },
-            {id: "2", title: "Tea", todoListId: "todoListID_2", addedDate:'', startDate: "",
-                completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.Completed, entityStatus:"idle" },
-            {id: "3", title: "Beer", todoListId: "todoListID_2", addedDate:'', startDate: "",
-                completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.New, entityStatus:"idle" }
-        ]
-    }
     const action = changeTaskStatusAC({taskId :"3", domainModel: {status:TaskStatuses.Completed}, todoListID :"todoListID_2"})
     const endState = tasksReducer(startState, action)
     expect(endState["todoListID_2"][2].status).toBe(2)
@@ -85,50 +53,13 @@ test('status of specified task should be changed', () => {
 })
 
 test('title of specified task should be changed', () => {
-    const startState: TaskStateType = {
-        "todoListID_1": [
-            {id: "1", title: "HTML", todoListId: "todoListID_1", addedDate:'', startDate: "",
-                completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.Completed, entityStatus:"idle" },
-            {id: "2", title: "CSS", todoListId: "todoListID_1", addedDate:'', startDate: "",
-                completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.Completed, entityStatus:"idle" },
-            {id: "3", title: "JS/TS", todoListId: "todoListID_1", addedDate:'', startDate: "",
-                completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.New, entityStatus:"idle" }
-        ],
-        "todoListID_2": [
-            {id: "1", title: "Book", todoListId: "todoListID_2", addedDate:'', startDate: "",
-                completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.Completed, entityStatus:"idle" },
-            {id: "2", title: "Tea", todoListId: "todoListID_2", addedDate:'', startDate: "",
-                completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.Completed, entityStatus:"idle" },
-            {id: "3", title: "Beer", todoListId: "todoListID_2", addedDate:'', startDate: "",
-                completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.New, entityStatus:"idle" }
-        ]
-    }
-    const action = changeTaskStatusAC({ taskId:"2", domainModel: {title:"What i want"}, todoListID: "todoListID_1"
-})
+    const action = changeTaskStatusAC({ taskId:"2", domainModel: {title:"What i want"}, todoListID: "todoListID_1"})
     const endState = tasksReducer(startState, action)
     expect(endState["todoListID_1"][1].title).toBe("What i want")
     expect(endState["todoListID_2"][1].title).toBe("Tea")
 })
 
 test('new property with new array should be added when new todolist is added', () => {
-    const startState: TaskStateType = {
-        "todoListID_1": [
-            {id: "1", title: "HTML", todoListId: "todoListID_1", addedDate:'', startDate: "",
-                completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.Completed, entityStatus:"idle"},
-            {id: "2", title: "CSS", todoListId: "todoListID_1", addedDate:'', startDate: "",
-                completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.Completed, entityStatus:"idle"},
-            {id: "3", title: "JS/TS", todoListId: "todoListID_1", addedDate:'', startDate: "",
-                completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.New, entityStatus:"idle"}
-        ],
-        "todoListID_2": [
-            {id: "1", title: "Book", todoListId: "todoListID_2", addedDate:'', startDate: "",
-                completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.Completed, entityStatus:"idle"},
-            {id: "2", title: "Tea", todoListId: "todoListID_2", addedDate:'', startDate: "",
-                completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.Completed, entityStatus:"idle"},
-            {id: "3", title: "Beer", todoListId: "todoListID_2", addedDate:'', startDate: "",
-                completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.New, entityStatus:"idle"}
-        ]
-    }
     let todolist = {id: "todoListID_3", title: "new todolist", addedDate: "", order: 0}
     const action = AddTodolistAC({todolist :todolist})
     const endState = tasksReducer(startState, action)
@@ -143,24 +74,6 @@ test('new property with new array should be added when new todolist is added', (
 })
 
 test('property with todolistID should be deleted', () => {
-    const startState: TaskStateType = {
-        "todoListID_1": [
-            {id: "1", title: "HTML", todoListId: "todoListID_1", addedDate:'', startDate: "",
-                completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.Completed, entityStatus:"idle"},
-            {id: "2", title: "CSS", todoListId: "todoListID_1", addedDate:'', startDate: "",
-                completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.Completed, entityStatus:"idle"},
-            {id: "3", title: "JS/TS", todoListId: "todoListID_1", addedDate:'', startDate: "",
-                completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.New, entityStatus:"idle"}
-        ],
-        "todoListID_2": [
-            {id: "1", title: "Book", todoListId: "todoListID_2", addedDate:'', startDate: "",
-                completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.Completed, entityStatus:"idle"},
-            {id: "2", title: "Tea", todoListId: "todoListID_2", addedDate:'', startDate: "",
-                completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.Completed, entityStatus:"idle"},
-            {id: "3", title: "Beer", todoListId: "todoListID_2", addedDate:'', startDate: "",
-                completed:true, deadline:'', description:'', order:0, priority:TaskPriorities.Low, status:TaskStatuses.New, entityStatus:"idle"}
-        ]
-    }
     const action = RemoveTodolistAC({todolistId :'todoListID_2'})
     const endState = tasksReducer(startState, action)
     const keys = Object.keys(endState);
@@ -169,3 +82,12 @@ test('property with todolistID should be deleted', () => {
     expect(endState['todoListID_2']).toBeUndefined()
 })
 
+test('tasks should be added for todolist', () => {
+    const action = fetchTaskTC.fulfilled({todoListId: "todoListID_1", tasks: startState["todoListID_1"]}, '',  "todoListID_1")
+    const endState = tasksReducer({
+        "todoListID_1": [],
+        "todoListID_2": []
+    }, action)
+    expect(endState["todoListID_2"].length).toBe(0)
+    expect(endState["todoListID_1"].length).toBe(3)
+})
