@@ -1,5 +1,5 @@
 
-import {addTaskAC, changeTaskStatusAC, fetchTaskTC, removeTaskAC, tasksReducer} from "./tasks-reducer";
+import {addTasksTC, changeTaskStatusAC, fetchTaskTC, removeTaskAC, tasksReducer} from "./tasks-reducer";
 import {AddTodolistAC, RemoveTodolistAC} from "./todolists-reducer";
 import {TaskStateType} from "../../../app/AppWithRedux";
 import {TaskPriorities, TaskStatuses} from "../../../api/Todolists-api";
@@ -38,7 +38,7 @@ test('correct task should be add', () => {
 
     let task  = {description: "", title: 'Gosha', completed: true, status: TaskStatuses.New,
             priority: 0, startDate: "", deadline: "", id: v1(), todoListId: v1(), order: 0, addedDate: "", entityStatus:"idle"}as const
-    const action = addTaskAC({ title :"Gosha",todolistID: "todoListID_2", task})
+    const action = addTasksTC.fulfilled({title: 'Gosha', todolistID: "todoListID_2", task: task}, '', {title:'Gosha', todoListID:"todoListID_1" })
     const endState = tasksReducer(startState, action)
     expect(endState["todoListID_2"][0].title).toBe("Gosha")
     expect(endState["todoListID_2"].length).toBe(4)
