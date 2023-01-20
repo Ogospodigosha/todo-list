@@ -1,5 +1,5 @@
 
-import {addTasksTC, changeTaskStatusAC, fetchTaskTC, removeTaskAC, tasksReducer} from "./tasks-reducer";
+import {addTasksTC, fetchTaskTC, removeTaskTC, tasksReducer, updateTaskTC} from "./tasks-reducer";
 import {AddTodolistAC, RemoveTodolistAC} from "./todolists-reducer";
 import {TaskStateType} from "../../../app/AppWithRedux";
 import {TaskPriorities, TaskStatuses} from "../../../api/Todolists-api";
@@ -28,7 +28,7 @@ beforeEach(()=>{
 })
 
 test('correct task should be removed', () => {
-    const action = removeTaskAC({todolistID :"todoListID_1",taskID: "2"})
+    const action = removeTaskTC.fulfilled({todolistID :"todoListID_1",taskID: "2"}, '', {todoListID :"todoListID_1",taskId: "2"})
     const endState = tasksReducer(startState, action)
     expect(endState["todoListID_2"][1].id).toBe("2")
     expect(endState["todoListID_1"].length).toBe(2)
@@ -46,14 +46,14 @@ test('correct task should be add', () => {
 })
 
 test('status of specified task should be changed', () => {
-    const action = changeTaskStatusAC({taskId :"3", domainModel: {status:TaskStatuses.Completed}, todoListID :"todoListID_2"})
+    const action = updateTaskTC.fulfilled({taskId :"3", domainModel: {status:TaskStatuses.Completed}, todoListID :"todoListID_2"}, '',{taskId :"3", domainModel: {status:TaskStatuses.Completed }, todoListID :"todoListID_2"} )
     const endState = tasksReducer(startState, action)
     expect(endState["todoListID_2"][2].status).toBe(2)
     expect(endState["todoListID_2"].every(el=> el.status)).toBeTruthy()
 })
 
 test('title of specified task should be changed', () => {
-    const action = changeTaskStatusAC({ taskId:"2", domainModel: {title:"What i want"}, todoListID: "todoListID_1"})
+    const action = updateTaskTC.fulfilled({ taskId:"2", domainModel: {title:"What i want"}, todoListID: "todoListID_1"}, '', { taskId:"2", domainModel: {title:"What i want"}, todoListID: "todoListID_1"})
     const endState = tasksReducer(startState, action)
     expect(endState["todoListID_1"][1].title).toBe("What i want")
     expect(endState["todoListID_2"][1].title).toBe("Tea")
