@@ -37,7 +37,7 @@ export const logoutTC = createAsyncThunk('auth/logout', async (param, {dispatch,
     try {
         if (res.data.resultCode === 0) {
             dispatch(SetAppStatusAC({status: 'succeeded'}))
-           return {value: false}
+            dispatch(setIsLoggedInAC({isLoggedIn: false}))
         } else {
             handleServerAppError(res.data, dispatch)
             return rejectWithValue(null)
@@ -51,15 +51,17 @@ export const logoutTC = createAsyncThunk('auth/logout', async (param, {dispatch,
 export const initializeAppTC = createAsyncThunk('auth/initializeApp', async (param, {dispatch, rejectWithValue}) => {
     dispatch(SetAppStatusAC({status: "loading"}));
     const res = await authAPI.me()
+    debugger
     try {
         if (res.data.resultCode === 0) {
-            dispatch(setIsLoggedInAC({value: true}));
+            dispatch(setIsLoggedInAC({isLoggedIn: true}));
             dispatch(SetAppStatusAC({status: "succeeded"}));
+            return {isInitialized: true}
         } else {
             handleServerAppError(res.data, dispatch)
-            return rejectWithValue(null)
+            return {isInitialized: true}
         }
-        return {isInitialized: true}
+
     } catch (error: any) {
         handleServerNetworkError(error, dispatch)
         return rejectWithValue(null)
@@ -70,12 +72,18 @@ const slice = createSlice({
     name: 'auth',
     initialState: initialState,
     reducers: {
-        setIsLoggedInAC(state, action: PayloadAction<{value: boolean}>) {
-                state.isLoggedIn = action.payload.value
-        }
+        setIsLoggedInAC(state, action: PayloadAction<{isLoggedIn: boolean}>) {
+            debugger
+                state.isLoggedIn = action.payload.isLoggedIn
+        },
+        initializeAppAC(state, action: PayloadAction<{isInitialized: boolean}>) {
+            debugger
+            state.isInitialized = action.payload.isInitialized
+        },
     },
     extraReducers: (builder)=>{
         builder.addCase(loginTC.fulfilled, (state, action)=>{
+            debugger
                 state.isLoggedIn = action.payload.isLoggedIn
         });
         builder.addCase(initializeAppTC.fulfilled, (state, action)=>{
@@ -84,7 +92,7 @@ const slice = createSlice({
     }
 })
 export const authReducer = slice.reducer
-export const {setIsLoggedInAC} = slice.actions
+export const {setIsLoggedInAC, initializeAppAC} = slice.actions
 
 
 

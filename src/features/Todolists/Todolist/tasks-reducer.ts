@@ -6,11 +6,10 @@ import {
 } from "./todolists-reducer";
 import {TaskStateType} from "../../../app/AppWithRedux";
 import {TaskStatuses, TodolistsApi} from "../../../api/Todolists-api";
-import {Dispatch} from "redux";
 import {AppRootState} from "../../../app/store";
 import { SetAppStatusAC} from "../../../app/app-reducer";
 import {handleServerAppError, handleServerNetworkError} from "../../../utils/error-utils";
-import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 
 
 export const fetchTaskTC = createAsyncThunk('tasks/fetchTasks', async (todolistId: string, {
@@ -19,6 +18,7 @@ export const fetchTaskTC = createAsyncThunk('tasks/fetchTasks', async (todolistI
 }) => {
     dispatch(SetAppStatusAC({status: 'loading'}))
     const res = await TodolistsApi.getTasks(todolistId)
+    debugger
     try {
         let tasks = res.data.items
         dispatch(SetAppStatusAC({status: 'succeeded'}))

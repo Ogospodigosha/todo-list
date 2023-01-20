@@ -65,7 +65,7 @@ export const Todolist=React.memo( (props: TodolistProsType )=> {
     useEffect(()=>{
         debugger
         dispatch(fetchTaskTC(props.id))
-    },[])
+    },[props.id])
     return (
     <div>
         <h3>

@@ -115,9 +115,3 @@ export type TodolistDomainType = TodolistType & {
     filter: FilterValuesType
     entityStatus: RequestStatusType
 }
-// type ActionsType = RemoveTodolistActionType
-//     | AddTodolistActionType
-//     | ReturnType<typeof ChangeTodolistAC>
-//     | ReturnType<typeof ChangeTodolistFilterAC>
-//     | GetTodolistType
-//     | ReturnType<typeof ChangeTodolistEntityStatusAC>
