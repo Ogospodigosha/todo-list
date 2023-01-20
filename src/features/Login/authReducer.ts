@@ -1,4 +1,4 @@
-import {AnyAction, Dispatch} from "redux";
+
 import { SetAppStatusAC} from "../../app/app-reducer";
 import {authAPI, LoginParamsType} from "../../api/Todolists-api";
 import {handleServerAppError, handleServerNetworkError} from "../../utils/error-utils";
@@ -20,65 +20,72 @@ export const loginTC = createAsyncThunk('auth/login', async (param:LoginParamsTy
                return  {isLoggedIn: true}
             } else {
                 handleServerAppError(res.data, thunkAPI.dispatch)
-                return  {isLoggedIn: false}
+                return thunkAPI.rejectWithValue(null)
 
             }
      }
      catch (error: any ) {
         debugger
          handleServerNetworkError(error, thunkAPI.dispatch)
-         return {isLoggedIn: false}
+         return thunkAPI.rejectWithValue(null)
      }
 })
+export const logoutTC = createAsyncThunk('auth/logout', async (param, {dispatch, rejectWithValue}) => {
+    dispatch(SetAppStatusAC({status: 'loading'}))
+    const res = await authAPI.logout()
+    debugger
+    try {
+        if (res.data.resultCode === 0) {
+            dispatch(SetAppStatusAC({status: 'succeeded'}))
+           return {value: false}
+        } else {
+            handleServerAppError(res.data, dispatch)
+            return rejectWithValue(null)
+        }
+    } catch (error: any) {
+        debugger
+        handleServerNetworkError(error, dispatch)
+        return rejectWithValue(null)
+    }
+})
+export const initializeAppTC = createAsyncThunk('auth/initializeApp', async (param, {dispatch, rejectWithValue}) => {
+    dispatch(SetAppStatusAC({status: "loading"}));
+    const res = await authAPI.me()
+    try {
+        if (res.data.resultCode === 0) {
+            dispatch(setIsLoggedInAC({value: true}));
+            dispatch(SetAppStatusAC({status: "succeeded"}));
+        } else {
+            handleServerAppError(res.data, dispatch)
+            return rejectWithValue(null)
+        }
+        return {isInitialized: true}
+    } catch (error: any) {
+        handleServerNetworkError(error, dispatch)
+        return rejectWithValue(null)
+    }
+})
+
 const slice = createSlice({
     name: 'auth',
     initialState: initialState,
     reducers: {
         setIsLoggedInAC(state, action: PayloadAction<{value: boolean}>) {
                 state.isLoggedIn = action.payload.value
-        },
-        SetIsInitializedAC(state, action:PayloadAction<{isInitialized: boolean}>){
-            state.isInitialized = action.payload.isInitialized
         }
     },
     extraReducers: (builder)=>{
         builder.addCase(loginTC.fulfilled, (state, action)=>{
                 state.isLoggedIn = action.payload.isLoggedIn
         });
+        builder.addCase(initializeAppTC.fulfilled, (state, action)=>{
+            state.isInitialized = action.payload.isInitialized
+        });
     }
 })
 export const authReducer = slice.reducer
-export const {setIsLoggedInAC, SetIsInitializedAC} = slice.actions
+export const {setIsLoggedInAC} = slice.actions
 
-//thunk
 
-export const logoutTC = () => (dispatch: Dispatch<AnyAction>) => {
-    dispatch(SetAppStatusAC({status:'loading'}))
-    authAPI.logout()
-        .then(res => {
-            if (res.data.resultCode === 0) {
-                dispatch(setIsLoggedInAC({value: false}))
-                dispatch(SetAppStatusAC({status:'succeeded'}))
-            } else {
-                handleServerAppError(res.data, dispatch)
-            }
-        })
-        .catch((error) => {
-            handleServerNetworkError(error, dispatch)
-        })
-}
-export const initializeAppTC = () => (dispatch: Dispatch) => {
-    dispatch(SetAppStatusAC({status: "loading"}));
-    authAPI.me().then(res => {
-        if (res.data.resultCode === 0) {
-            dispatch(setIsLoggedInAC({value: true}));
-            dispatch(SetAppStatusAC({status: "succeeded"}));
-        } else {
-            handleServerAppError(res.data, dispatch)
-        }
-        dispatch(SetIsInitializedAC({isInitialized: true}))
-    })
-        .catch((error) => {
-            handleServerNetworkError(error, dispatch)
-        })
-}
+
+
