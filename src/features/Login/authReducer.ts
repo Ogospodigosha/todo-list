@@ -30,14 +30,14 @@ export const loginTC = createAsyncThunk('auth/login', async (param:LoginParamsTy
          return thunkAPI.rejectWithValue(null)
      }
 })
-export const logoutTC = createAsyncThunk('auth/logout', async (param, {dispatch, rejectWithValue}) => {
+export const logoutTC = createAsyncThunk('auth/login', async (param, {dispatch, rejectWithValue}) => {
     dispatch(SetAppStatusAC({status: 'loading'}))
     const res = await authAPI.logout()
     debugger
     try {
         if (res.data.resultCode === 0) {
             dispatch(SetAppStatusAC({status: 'succeeded'}))
-            dispatch(setIsLoggedInAC({isLoggedIn: false}))
+            return {isLoggedIn: false}
         } else {
             handleServerAppError(res.data, dispatch)
             return rejectWithValue(null)
@@ -76,10 +76,6 @@ const slice = createSlice({
             debugger
                 state.isLoggedIn = action.payload.isLoggedIn
         },
-        initializeAppAC(state, action: PayloadAction<{isInitialized: boolean}>) {
-            debugger
-            state.isInitialized = action.payload.isInitialized
-        },
     },
     extraReducers: (builder)=>{
         builder.addCase(loginTC.fulfilled, (state, action)=>{
@@ -92,7 +88,7 @@ const slice = createSlice({
     }
 })
 export const authReducer = slice.reducer
-export const {setIsLoggedInAC, initializeAppAC} = slice.actions
+export const {setIsLoggedInAC} = slice.actions
 
 
 

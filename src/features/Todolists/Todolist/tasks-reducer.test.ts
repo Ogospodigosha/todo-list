@@ -1,6 +1,6 @@
 
 import {addTasksTC, fetchTaskTC, removeTaskTC, tasksReducer, updateTaskTC} from "./tasks-reducer";
-import {AddTodolistAC, RemoveTodolistAC} from "./todolists-reducer";
+import {addTodolistTC, deleteTodolistTC} from "./todolists-reducer";
 import {TaskStateType} from "../../../app/AppWithRedux";
 import {TaskPriorities, TaskStatuses} from "../../../api/Todolists-api";
 import {v1} from "uuid";
@@ -61,7 +61,7 @@ test('title of specified task should be changed', () => {
 
 test('new property with new array should be added when new todolist is added', () => {
     let todolist = {id: "todoListID_3", title: "new todolist", addedDate: "", order: 0}
-    const action = AddTodolistAC({todolist :todolist})
+    const action = addTodolistTC.fulfilled({todolist :todolist}, '', todolist.title)
     const endState = tasksReducer(startState, action)
     const keys = Object.keys(endState);
     const newKey = keys.find(el => el !== "todoListID_1" &&  el !== "todoListID_2" )
@@ -74,7 +74,7 @@ test('new property with new array should be added when new todolist is added', (
 })
 
 test('property with todolistID should be deleted', () => {
-    const action = RemoveTodolistAC({todolistId :'todoListID_2'})
+    const action = deleteTodolistTC.fulfilled({todolistId :'todoListID_2'}, '','todoListID_2' )
     const endState = tasksReducer(startState, action)
     const keys = Object.keys(endState);
 
