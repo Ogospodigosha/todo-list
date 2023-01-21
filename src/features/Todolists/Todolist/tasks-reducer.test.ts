@@ -1,9 +1,10 @@
 
-import {addTasksTC, fetchTaskTC, removeTaskTC, tasksReducer, updateTaskTC} from "./tasks-reducer";
-import {addTodolistTC, deleteTodolistTC} from "./todolists-reducer";
+import {tasksReducer} from "./tasks-reducer";
 import {TaskStateType} from "../../../app/AppWithRedux";
 import {TaskPriorities, TaskStatuses} from "../../../api/Todolists-api";
 import {v1} from "uuid";
+import {addTasksTC, fetchTaskTC, removeTaskTC, updateTaskTC} from "./tasks-actions";
+import {addTodolistTC, deleteTodolistTC} from "./todolists-actions";
 
 let startState: TaskStateType = {}
 beforeEach(()=>{

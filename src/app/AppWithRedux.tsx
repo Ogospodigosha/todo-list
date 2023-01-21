@@ -5,12 +5,13 @@ import {Menu} from "@mui/icons-material";
 import {TaskType} from "../api/Todolists-api";
 import {TodolistsList} from "../features/Todolists/TodolistsList";
 import {useSelector} from "react-redux";
-import {AppRootState, useAppDispatch, useAppSelector} from "./store";
+import {useAppDispatch} from "./store";
 import {CustomizedSnackbars} from "../Components/ErrorSnackBar/ErrorSnackBar";
-import { RequestStatusType} from "./app-reducer";
 import {Navigate, Route, Routes } from 'react-router-dom';
 import {Login} from "../features/Login/Login";
 import {initializeAppTC, logoutTC} from "../features/Login/authReducer";
+import {authSelectors} from "../features/Login";
+import {appSelectors} from "./index";
 
 
 export type TaskStateType = {
@@ -20,9 +21,9 @@ export type TaskStateType = {
 
 export function AppWithRedux() {
     const dispatch= useAppDispatch()
-    let appStatus = useSelector<AppRootState,RequestStatusType >(state => state.app.status)
-    let isInitialized = useSelector<AppRootState, boolean>(state => state.auth.isInitialized)
-    const isLoggedIn = useSelector<AppRootState, boolean>(state => state.auth.isLoggedIn)
+    const appStatus = useSelector(appSelectors.selectAppStatus)
+    const isInitialized = useSelector(authSelectors.selectIsInitialized)
+    const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn)
     console.log("AppWithRedux is coled")
     useEffect(()=>{
         dispatch(initializeAppTC())

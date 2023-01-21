@@ -9,9 +9,9 @@ import {Delete} from "@mui/icons-material";
 import {FilterValuesType} from "./todolists-reducer";
 import {TaskStatuses, TaskType} from "../../../api/Todolists-api";
 
-import {fetchTaskTC} from "./tasks-reducer";
 import {useAppDispatch} from "../../../app/store";
 import {RequestStatusType} from "../../../app/app-reducer";
+import {fetchTaskTC} from "./tasks-actions";
 
 
 
