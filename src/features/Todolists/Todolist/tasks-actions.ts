@@ -5,7 +5,7 @@ import {handleServerAppError, handleServerNetworkError} from "../../../utils/err
 import {AppRootState} from "../../../app/store";
 import {UpdateModeltype} from "./tasks-reducer";
 
-export const fetchTaskTC = createAsyncThunk('tasks/fetchTasks', async (todolistId: string, {
+export const fetchTask = createAsyncThunk('tasks/fetchTasks', async (todolistId: string, {
     dispatch,
     rejectWithValue
 }) => {
@@ -21,7 +21,7 @@ export const fetchTaskTC = createAsyncThunk('tasks/fetchTasks', async (todolistI
         return rejectWithValue(null)
     }
 })
-export const addTasksTC = createAsyncThunk('tasks/addTasks', async (param: { title: string, todoListID: string }, {
+export const addTask = createAsyncThunk('tasks/addTasks', async (param: { title: string, todoListID: string }, {
     dispatch,
     rejectWithValue
 }) => {
@@ -41,7 +41,7 @@ export const addTasksTC = createAsyncThunk('tasks/addTasks', async (param: { tit
         return rejectWithValue(null)
     }
 })
-export const removeTaskTC = createAsyncThunk('tasks/removeTask', async (param: { taskId: string, todoListID: string }, {
+export const removeTask = createAsyncThunk('tasks/removeTask', async (param: { taskId: string, todoListID: string }, {
     dispatch,
     rejectWithValue
 }) => {
@@ -60,7 +60,7 @@ export const removeTaskTC = createAsyncThunk('tasks/removeTask', async (param: {
         return rejectWithValue(null)
     }
 })
-export const updateTaskTC = createAsyncThunk('tasks/updateTask', async (param: { taskId: string, domainModel: UpdateModeltype, todoListID: string }, {
+export const updateTask = createAsyncThunk('tasks/updateTask', async (param: { taskId: string, domainModel: UpdateModeltype, todoListID: string }, {
     dispatch,
     rejectWithValue,
     getState

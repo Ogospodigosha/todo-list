@@ -1,8 +1,8 @@
 import {TaskStateType} from "../../../app/AppWithRedux";
 import {TaskStatuses} from "../../../api/Todolists-api";
 import {createSlice} from "@reduxjs/toolkit";
-import {addTasksTC, fetchTaskTC, removeTaskTC, updateTaskTC} from "./tasks-actions";
-import {addTodolistTC, deleteTodolistTC, fetchTodolistsTC} from "./todolists-actions";
+import {addTask, fetchTask, removeTask, updateTask} from "./tasks-actions";
+import {addTodolist, removeTodolist, fetchTodolists} from "./todolists-actions";
 
 
 const initialState: TaskStateType = {}
@@ -11,32 +11,32 @@ const slice = createSlice({
     initialState: initialState,
     reducers: {},
     extraReducers: (builder)=>{
-        builder.addCase(addTodolistTC.fulfilled, (state, action)=>{
+        builder.addCase(addTodolist.fulfilled, (state, action)=>{
             state[action.payload.todolist.id] = []
         });
-        builder.addCase(fetchTodolistsTC.fulfilled, (state, action)=>{
+        builder.addCase(fetchTodolists.fulfilled, (state, action)=>{
             action.payload.todolists.forEach(el => {
                             state[el.id] = []
                         })
         });
-        builder.addCase(deleteTodolistTC.fulfilled, (state, action)=>{
+        builder.addCase(removeTodolist.fulfilled, (state, action)=>{
             delete state[action.payload.todolistId]
         });
-        builder.addCase(fetchTaskTC.fulfilled, (state, action)=>{
+        builder.addCase(fetchTask.fulfilled, (state, action)=>{
            state[action.payload.todoListId] = action.payload.tasks
         });
-        builder.addCase(addTasksTC.fulfilled, (state, action)=>{
+        builder.addCase(addTask.fulfilled, (state, action)=>{
             if (action.payload) {
                 state[action.payload.todolistID].unshift(action.payload.task)
             }
         });
-        builder.addCase(removeTaskTC.fulfilled, (state, action)=>{
+        builder.addCase(removeTask.fulfilled, (state, action)=>{
             const index = state[action.payload.todolistID].findIndex(el => el.id === action.payload.taskID)
             if (index > -1) {
                 state[action.payload.todolistID].splice(index, 1)
             }
         });
-        builder.addCase(updateTaskTC.fulfilled, (state, action)=>{
+        builder.addCase(updateTask.fulfilled, (state, action)=>{
             if (action.payload) {
                 const index = state[action.payload.todoListID].findIndex(el => el.id === action.payload?.taskId)
                 if (index > -1) {

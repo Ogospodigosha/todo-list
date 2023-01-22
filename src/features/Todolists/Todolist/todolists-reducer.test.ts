@@ -6,7 +6,7 @@ import {
     todolistsReducer
 } from "./todolists-reducer";
 import {RequestStatusType} from "../../../app/app-reducer";
-import {addTodolistTC, changeTodolistTitleTC, deleteTodolistTC} from "./todolists-actions";
+import {addTodolist, changeTodolistTitle, removeTodolist} from "./todolists-actions";
 
 
 test('correct todolist should be removed', () => {
@@ -16,7 +16,7 @@ test('correct todolist should be removed', () => {
         {id: todoListID_1, title: "What to learn", filter: "all", order: 0, addedDate: '', entityStatus: "idle"},
         {id: todoListID_2, title: "What to Buy", filter: "all", order: 0, addedDate: '', entityStatus: "idle"}
     ]
-    const endState = todolistsReducer(startState, deleteTodolistTC.fulfilled({todolistId: todoListID_1}, '', todoListID_1))
+    const endState = todolistsReducer(startState, removeTodolist.fulfilled({todolistId: todoListID_1}, '', todoListID_1))
     expect(endState.length).toBe(1)
     expect(endState[0].id).toBe(todoListID_2)
 })
@@ -30,7 +30,7 @@ test('correct todolist should be added', () => {
         {id: todoListID_2, title: "What to Buy", filter: "all", order: 0, addedDate: '', entityStatus: "idle"}
     ]
     let todolist = {id: v1(), title: "New todolist", addedDate: '', order: 0}
-    const endState = todolistsReducer(startState, addTodolistTC.fulfilled({todolist}, '', todolist.title))
+    const endState = todolistsReducer(startState, addTodolist.fulfilled({todolist}, '', todolist.title))
 
     expect(endState.length).toBe(3);
     expect(endState[0].title).toBe(newTodolistTitle)
@@ -45,7 +45,7 @@ test('correct todolist should change its name', () => {
         {id: todoListID_1, title: "What to learn", filter: "all", order: 0, addedDate: '', entityStatus: "idle"},
         {id: todoListID_2, title: "What to Buy", filter: "all", order: 0, addedDate: '', entityStatus: "idle"}
     ]
-    const action = changeTodolistTitleTC.fulfilled({id: todoListID_2, title: newTodolistTitle}, '', { todoListID: todoListID_2, title: newTodolistTitle})
+    const action = changeTodolistTitle.fulfilled({id: todoListID_2, title: newTodolistTitle}, '', { todoListID: todoListID_2, title: newTodolistTitle})
 
     const endState = todolistsReducer(startState, action)
     expect(endState[0].title).toBe("What to learn");

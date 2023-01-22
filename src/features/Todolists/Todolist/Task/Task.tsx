@@ -12,7 +12,7 @@ type TaskPropsType ={
     todolistId: string
     changeIsDone: (taskId: string, status: TaskStatuses, todoListID: string)=>void
     changeTaskTitle: (taskId: string, newValue: string, todoListID: string)=>void
-    removeTask: (taskId: string, todoListID: string)=>void
+    removeTask: (param: {taskId: string, todoListID: string})=>void
     el: TaskType
 }
 export const Task = React.memo((props: TaskPropsType)=> {
@@ -27,7 +27,7 @@ export const Task = React.memo((props: TaskPropsType)=> {
         props.changeTaskTitle(props.el.id, newValue, props.todolistId )
     }, [props.changeTaskTitle, props.todolistId, props.el.id ])
     const remomeTaskHandler =(id: string)=>{
-        return props.removeTask(id, props.todolistId)
+        return props.removeTask({taskId: id, todoListID: props.todolistId})
     }
     return(
         <div key={props.el.id} className={props.el.status === TaskStatuses.Completed ? style.isDone : ""}>

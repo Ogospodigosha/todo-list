@@ -1,12 +1,12 @@
 import {TodolistType} from "../../../api/Todolists-api";
 import {RequestStatusType} from "../../../app/app-reducer";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {addTodolistTC, changeTodolistTitleTC, deleteTodolistTC, fetchTodolistsTC} from "./todolists-actions";
+import {addTodolist, changeTodolistTitle, removeTodolist, fetchTodolists} from "./todolists-actions";
 
 
 const initialState:Array<TodolistDomainType> = []
 
-const slice = createSlice({
+export const slice = createSlice({
     name: 'todolists',
     initialState: initialState,
     reducers: {
@@ -24,19 +24,19 @@ const slice = createSlice({
         },
     },
     extraReducers: builder=>{
-        builder.addCase(fetchTodolistsTC.fulfilled, (state, action)=>{
+        builder.addCase(fetchTodolists.fulfilled, (state, action)=>{
             return action.payload.todolists.map(el => ({...el, filter: 'all', entityStatus: "idle"}))
         });
-        builder.addCase(deleteTodolistTC.fulfilled, (state, action)=>{
+        builder.addCase(removeTodolist.fulfilled, (state, action)=>{
             const index = state.findIndex(el=>el.id === action.payload.todolistId)
             if (index > -1){
                 state.splice(index, 1)
             }
         });
-        builder.addCase(addTodolistTC.fulfilled, (state, action)=>{
+        builder.addCase(addTodolist.fulfilled, (state, action)=>{
             state.unshift({...action.payload.todolist, filter: 'all', entityStatus: "idle"})
         });
-        builder.addCase(changeTodolistTitleTC.fulfilled, (state, action)=>{
+        builder.addCase(changeTodolistTitle.fulfilled, (state, action)=>{
             const index = state.findIndex(el=>el.id === action.payload.id)
             if(index > -1) {
                 state[index].title = action.payload.title

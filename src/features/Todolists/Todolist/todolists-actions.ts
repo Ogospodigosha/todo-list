@@ -4,7 +4,7 @@ import {TodolistsApi} from "../../../api/Todolists-api";
 import {handleServerAppError, handleServerNetworkError} from "../../../utils/error-utils";
 import {ChangeTodolistEntityStatusAC} from "./todolists-reducer";
 
-export const fetchTodolistsTC = createAsyncThunk('todolists/fetchTodolists', async (param, {
+export const fetchTodolists = createAsyncThunk('todolists/fetchTodolists', async (param, {
     dispatch,
     rejectWithValue
 }) => {
@@ -18,7 +18,7 @@ export const fetchTodolistsTC = createAsyncThunk('todolists/fetchTodolists', asy
         return rejectWithValue(null)
     }
 })
-export const deleteTodolistTC = createAsyncThunk('todolists/deleteTodolist', async (todoListID: string, {
+export const removeTodolist = createAsyncThunk('todolists/deleteTodolist', async (todoListID: string, {
     dispatch,
     rejectWithValue
 }) => {
@@ -38,7 +38,7 @@ export const deleteTodolistTC = createAsyncThunk('todolists/deleteTodolist', asy
         return rejectWithValue(null)
     }
 })
-export const addTodolistTC = createAsyncThunk('todolists/addTodolist', async (title: string, {
+export const addTodolist = createAsyncThunk('todolists/addTodolist', async (title: string, {
     dispatch,
     rejectWithValue
 }) => {
@@ -60,7 +60,7 @@ export const addTodolistTC = createAsyncThunk('todolists/addTodolist', async (ti
         return rejectWithValue(null)
     }
 })
-export const changeTodolistTitleTC = createAsyncThunk('todolists/changeTodolistTitle', async (param: { todoListID: string, title: string }, {
+export const changeTodolistTitle = createAsyncThunk('todolists/changeTodolistTitle', async (param: { todoListID: string, title: string }, {
     dispatch,
     rejectWithValue
 }) => {
