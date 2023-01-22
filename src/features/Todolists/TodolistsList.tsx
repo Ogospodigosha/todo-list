@@ -45,11 +45,8 @@ export const TodolistsList: React.FC = () => {
                     return <Grid item key={el.id}>
                         <Paper style={{padding: "10px"}}>
                             <Todolist key={el.id}
-                                      title={el.title}
-                                      id={el.id}
                                       tasks={tasksForTodolist}
-                                      filter={el.filter}
-                                      entityStatus = {el.entityStatus}
+                                      todolist={el}
                             />
                         </Paper>
                     </Grid>
