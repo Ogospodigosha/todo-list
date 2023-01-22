@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import {AppRootState, useActions} from "../../app/store";
+import {AppRootState} from "../../app/store";
 import {useSelector} from "react-redux";
 import {
     TodolistDomainType
@@ -10,22 +10,22 @@ import {Todolist} from "./Todolist/Todolist";
 import {TaskStateType} from "../../app/AppWithRedux";
 import { Navigate } from "react-router-dom";
 import {selectIsLoggedIn} from "../Login/selectors";
-import {todolistsActions} from "./Todolist";
+import {useActions} from "../../utils/useAction";
+
 
 
 export const TodolistsList: React.FC = () => {
     const isLoggedIn = useSelector(selectIsLoggedIn)
     const todoLists = useSelector<AppRootState, Array<TodolistDomainType>>(state => state.todolists)
     const tasks = useSelector<AppRootState, TaskStateType>(state => state.tasks)
-    const {addTodolist, fetchTodolists} = useActions(todolistsActions)
-
-
+    const {addTodolist, fetchTodolists} = useActions()
 
     useEffect(() => {
         if (!isLoggedIn) {
             return
         }
-        fetchTodolists()
+        debugger
+       fetchTodolists()
     }, [])
     if (!isLoggedIn) {
         debugger

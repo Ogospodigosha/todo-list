@@ -2,33 +2,30 @@ import React, {useCallback, useEffect} from "react";
 
 import {AddItemForm} from "../../../Components/AddItemForm/AddItemForm";
 import {EditableSpan} from "../../../Components/EditableSpan/EditableSpan";
-
 import {Task} from "./Task/Task";
 import {Button, IconButton} from "@mui/material";
 import {Delete} from "@mui/icons-material";
 import {TodolistDomainType} from "./todolists-reducer";
 import {TaskStatuses, TaskType} from "../../../api/Todolists-api";
+import {useActions} from "../../../utils/useAction";
 
-import {useActions, useAppDispatch} from "../../../app/store";
-import {fetchTask} from "./tasks-actions";
-import {tasksActions, todolistsActions} from "./index";
 
 export type TodolistProsType = {
     tasks: Array<TaskType>
     todolist: TodolistDomainType
 }
+
 export const Todolist=React.memo( (props: TodolistProsType )=> {
-    const dispatch = useAppDispatch()
-    const {ChangeTodolistFilterAC, removeTodolist, changeTodolistTitle} = useActions(todolistsActions)
-    const {addTask, updateTask,removeTask } = useActions(tasksActions)
+
+    const {ChangeTodolistFilterAC, removeTodolist, changeTodolistTitle, updateTask, addTask, fetchTask, removeTask} = useActions()
     console.log("todolist is called")
 
     const changeIsDone = useCallback((taskId: string, status: TaskStatuses, todoListID: string) => {
         updateTask({taskId, domainModel: {status}, todoListID})
-    }, [dispatch])
+    }, [])
     const changeTaskTitle = useCallback((taskId: string, newValue: string, todoListID: string) => {
         updateTask({taskId :taskId, domainModel: {title: newValue} , todoListID :todoListID})
-    }, [dispatch])
+    }, [])
     const onAllClickHandler = useCallback((todoListID: string) => {
         ChangeTodolistFilterAC({filter: 'all', id: todoListID})
     }, [props.todolist.id])
@@ -38,7 +35,7 @@ export const Todolist=React.memo( (props: TodolistProsType )=> {
     const onCompletedClickHandler = useCallback((todoListID: string)=>{
         ChangeTodolistFilterAC({filter: 'completed',id: todoListID})
     }, [props.todolist.id])
-    const deleteTaskHendler =()=>{
+    const deleteTaskHandler =()=>{
         removeTodolist(props.todolist.id)
     }
     const addTaskCallback = useCallback( (title: string)=>{
@@ -56,13 +53,13 @@ export const Todolist=React.memo( (props: TodolistProsType )=> {
     }
     useEffect(()=>{
         debugger
-        dispatch(fetchTask(props.todolist.id))
+        fetchTask(props.todolist.id)
     },[props.todolist.id])
     return (
     <div>
         <h3>
             <EditableSpan title={props.todolist.title} onChange={changeTitle} entityStatus={props.todolist.entityStatus}/>
-            <IconButton  onClick={deleteTaskHendler} disabled={props.todolist.entityStatus === "loading"}>
+            <IconButton  onClick={deleteTaskHandler} disabled={props.todolist.entityStatus === "loading"}>
                 <Delete />
             </IconButton>
         </h3>

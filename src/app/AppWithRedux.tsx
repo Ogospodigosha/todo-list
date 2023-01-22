@@ -27,7 +27,7 @@ export function AppWithRedux() {
     console.log("AppWithRedux is coled")
     useEffect(()=>{
         dispatch(initializeAppTC())
-    },[])
+    },[dispatch])
     if (!isInitialized) {
         return <div
             style={{position: 'fixed', top: '30%', textAlign: 'center', width: '100%'}}>
