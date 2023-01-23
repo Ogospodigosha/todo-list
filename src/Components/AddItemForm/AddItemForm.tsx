@@ -38,11 +38,6 @@ export const AddItemForm = React.memo((props: addItemFormPropsType) => {
 
     }
     return <div>
-        {/*<input value={title}*/}
-        {/*       onChange={onChangeHandler}*/}
-        {/*       onKeyPress={onKeyPressHandler}*/}
-        {/*       className={error ? style.error : ""}*/}
-        {/*/>*/}
         <TextField value={title}
                    variant={"outlined"}
                    onChange={onChangeHandler}
@@ -53,9 +48,8 @@ export const AddItemForm = React.memo((props: addItemFormPropsType) => {
                    disabled={props.entityStatus === "loading"}
         />
 
-        <IconButton  color={"primary"} onClick={addTaskHandler} disabled={props.entityStatus === "loading"}>
+        <IconButton  color={"primary"} onClick={addTaskHandler} disabled={props.entityStatus === "loading"} style={{marginLeft: '5px'}}>
             <ControlPoint/>
         </IconButton>
-        {/*{error && <div className={style.errorMessage}>{error}</div>}*/}
     </div>
 })

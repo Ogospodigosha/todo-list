@@ -37,7 +37,7 @@ export const TodolistsList: React.FC = () => {
         <Grid container style={{padding: "20px"}}>
             <AddItemForm addItem={addTodolist}/>
         </Grid>
-        <Grid container spacing={3}>
+        <Grid container spacing={3} style={{flexWrap:'nowrap', overflowX: 'scroll'}}>
             {
                 todoLists.map(el => {
 

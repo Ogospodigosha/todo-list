@@ -55,7 +55,7 @@ export const Todolist=React.memo( (props: TodolistProsType )=> {
     }
     return (
     <div>
-        <h3 >
+        <h3 style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start'}}>
             <EditableSpan title={props.todolist.title} onChange={changeTitle} entityStatus={props.todolist.entityStatus}/>
             <IconButton  onClick={deleteTaskHandler} disabled={props.todolist.entityStatus === "loading"}>
                 <Delete />
