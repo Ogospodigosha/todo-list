@@ -25,5 +25,5 @@ export const EditableSpan = React.memo((props: EditableSpanPropsType) => {
     }
     return editMode && props.entityStatus !== "loading"
         ?   <TextField value={title} onChange={onchangeHandler} onBlur={activateViewMode} autoFocus />
-        : <span onDoubleClick={activateEditMode}>{props.title}</span>
+        : <span onDoubleClick={activateEditMode} >{props.title}</span>
 });

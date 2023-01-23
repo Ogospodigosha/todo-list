@@ -6,7 +6,7 @@ import {Task} from "./Task/Task";
 import {Button, IconButton} from "@mui/material";
 import {Delete} from "@mui/icons-material";
 import {FilterValuesType, TodolistDomainType} from "../todolists-reducer";
-import {TaskStatuses, TaskType} from "../../../api/Todolists-api";
+import { TaskType} from "../../../api/Todolists-api";
 import {useActions} from "../../../utils/useAction";
 import {todolistsActions, tasksActions} from '../index'
 import {ButtonPropsColorOverrides} from "@mui/material/Button/Button";
@@ -55,7 +55,7 @@ export const Todolist=React.memo( (props: TodolistProsType )=> {
     }
     return (
     <div>
-        <h3>
+        <h3 >
             <EditableSpan title={props.todolist.title} onChange={changeTitle} entityStatus={props.todolist.entityStatus}/>
             <IconButton  onClick={deleteTaskHandler} disabled={props.todolist.entityStatus === "loading"}>
                 <Delete />
