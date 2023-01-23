@@ -20,20 +20,10 @@ export type TodolistProsType = {
 export const Todolist=React.memo( (props: TodolistProsType )=> {
 
     const {ChangeTodolistFilterAC, removeTodolist, changeTodolistTitle} = useActions(todolistsActions)
-   const  { updateTask, addTask, fetchTask, removeTask} = useActions(tasksActions)
-    console.log("todolist is called")
-
-    const changeIsDone = useCallback((taskId: string, status: TaskStatuses, todoListID: string) => {
-        updateTask({taskId, domainModel: {status}, todoListID})
-    }, [])
-    const changeTaskTitle = useCallback((taskId: string, newValue: string, todoListID: string) => {
-        updateTask({taskId :taskId, domainModel: {title: newValue} , todoListID :todoListID})
-    }, [])
-
+    const { addTask, fetchTask} = useActions(tasksActions)
     const onClickFilterButton = useCallback((buttonFilter: FilterValuesType) => {
         ChangeTodolistFilterAC({filter: buttonFilter, id: props.todolist.id})
     }, [props.todolist.id])
-
 
     const deleteTaskHandler =()=>{
         removeTodolist(props.todolist.id)
@@ -52,7 +42,6 @@ export const Todolist=React.memo( (props: TodolistProsType )=> {
         tasksForTodolist = props.tasks.filter(el => el.status)
     }
     useEffect(()=>{
-        debugger
         fetchTask(props.todolist.id)
     },[props.todolist.id])
 
@@ -74,7 +63,7 @@ export const Todolist=React.memo( (props: TodolistProsType )=> {
         </h3>
         <AddItemForm addItem={addTaskCallback}  entityStatus={props.todolist.entityStatus}/>
         <div>
-            {tasksForTodolist.map((el)=><Task key ={el.id} todolistId={props.todolist.id} changeIsDone={changeIsDone} changeTaskTitle={changeTaskTitle}  removeTask={removeTask} el={el} />)}
+            {tasksForTodolist.map((el)=><Task key ={el.id} todolistId={props.todolist.id}   el={el} />)}
         </div>
         <div>
             {renderFilterButton('inherit',  "all", "All")}

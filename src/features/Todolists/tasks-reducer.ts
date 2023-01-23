@@ -14,7 +14,6 @@ export const fetchTask = createAsyncThunk('tasks/fetchTasks', async (todolistId:
 }) => {
     dispatch(SetAppStatusAC({status: 'loading'}))
     const res = await TodolistsApi.getTasks(todolistId)
-    debugger
     try {
         let tasks = res.data.items
         dispatch(SetAppStatusAC({status: 'succeeded'}))

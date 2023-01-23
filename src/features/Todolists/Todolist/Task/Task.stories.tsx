@@ -1,21 +1,20 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import {action} from "@storybook/addon-actions";
+
 import {Task} from "./Task";
 import {TaskPriorities, TaskStatuses} from "../../../../api/Todolists-api";
+import {ReduxStoreProviderDecorator} from "../../../../app/ReduxStoreProviderDecorator";
 
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: 'Todolists/Task',
   component: Task,
+  decorators: [ReduxStoreProviderDecorator],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   args: {
     todolistId: "1",
-    changeIsDone: action('changeIsDone'),
-    changeTaskTitle:  action('changeTaskTitle'),
-    removeTask: action('removeTask'),
     el: {id:"айди таски", title:'Html', status: TaskStatuses.Completed, description: "",
       completed: true, deadline:'', priority: TaskPriorities.Low, startDate:'', addedDate: '', order:0, todoListId:"1", entityStatus:"idle"}
   },
