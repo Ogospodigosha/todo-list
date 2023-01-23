@@ -8,9 +8,8 @@ import {useSelector} from "react-redux";
 import {useAppDispatch} from "./store";
 import {CustomizedSnackbars} from "../Components/ErrorSnackBar/ErrorSnackBar";
 import {Navigate, Route, Routes } from 'react-router-dom';
-import {Login} from "../features/Login/Login";
 import {initializeAppTC, logoutTC} from "../features/Login/authReducer";
-import {authSelectors} from "../features/Login";
+import {authSelectors, Login} from "../features/Login";
 import {appSelectors} from "./index";
 
 
