@@ -1,7 +1,7 @@
 
 import {tasksReducer} from "./tasks-reducer";
-import {TaskStateType} from "../../../app/AppWithRedux";
-import {TaskPriorities, TaskStatuses} from "../../../api/Todolists-api";
+import {TaskStateType} from "../../app/AppWithRedux";
+import {TaskPriorities, TaskStatuses} from "../../api/Todolists-api";
 import {v1} from "uuid";
 import {asyncActions as TodolistsActions} from './todolists-reducer'
 import {asyncActions as TasksActions} from './tasks-reducer'

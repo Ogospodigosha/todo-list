@@ -1,7 +1,7 @@
 
 import {TodolistDomainType, todolistsReducer} from "./todolists-reducer";
 import {tasksReducer} from "./tasks-reducer";
-import {TaskStateType} from "../../../app/AppWithRedux";
+import {TaskStateType} from "../../app/AppWithRedux";
 import {asyncActions as TodolistsActions} from './todolists-reducer'
 
 

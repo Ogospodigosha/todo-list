@@ -3,7 +3,7 @@ import {AppRootState} from "../../app/store";
 import {useSelector} from "react-redux";
 import {
     TodolistDomainType
-} from "./Todolist/todolists-reducer";
+} from "./todolists-reducer";
 import {Grid, Paper} from "@mui/material";
 import {AddItemForm} from "../../Components/AddItemForm/AddItemForm";
 import {Todolist} from "./Todolist/Todolist";
@@ -11,6 +11,7 @@ import {TaskStateType} from "../../app/AppWithRedux";
 import { Navigate } from "react-router-dom";
 import {selectIsLoggedIn} from "../Login/selectors";
 import {useActions} from "../../utils/useAction";
+import {todolistsActions} from "./index";
 
 
 
@@ -18,7 +19,7 @@ export const TodolistsList: React.FC = () => {
     const isLoggedIn = useSelector(selectIsLoggedIn)
     const todoLists = useSelector<AppRootState, Array<TodolistDomainType>>(state => state.todolists)
     const tasks = useSelector<AppRootState, TaskStateType>(state => state.tasks)
-    const {addTodolist, fetchTodolists} = useActions()
+    const {fetchTodolists, addTodolist} = useActions(todolistsActions)
 
     useEffect(() => {
         if (!isLoggedIn) {

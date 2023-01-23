@@ -5,7 +5,7 @@ import {
     ChangeTodolistFilterAC, FilterValuesType, TodolistDomainType,
     todolistsReducer
 } from "./todolists-reducer";
-import {RequestStatusType} from "../../../app/app-reducer";
+import {RequestStatusType} from "../../app/app-reducer";
 import {asyncActions as TodolistsActions} from './todolists-reducer'
 
 

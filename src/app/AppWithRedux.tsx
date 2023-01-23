@@ -3,7 +3,7 @@ import './App.css';
 import {AppBar, Button, CircularProgress, Container, IconButton, LinearProgress, Toolbar, Typography} from '@mui/material';
 import {Menu} from "@mui/icons-material";
 import {TaskType} from "../api/Todolists-api";
-import {TodolistsList} from "../features/Todolists/TodolistsList";
+import {TodolistsList} from "../features/Todolists";
 import {useSelector} from "react-redux";
 import {useAppDispatch} from "./store";
 import {CustomizedSnackbars} from "../Components/ErrorSnackBar/ErrorSnackBar";

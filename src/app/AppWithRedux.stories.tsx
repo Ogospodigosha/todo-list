@@ -4,8 +4,8 @@ import AppWithRedux from "./AppWithRedux";
 import {Provider} from "react-redux";
 import {AppRootState, store} from "./store";
 import {combineReducers, legacy_createStore} from "redux";
-import {tasksReducer} from "../features/Todolists/Todolist/tasks-reducer";
-import {todolistsReducer} from "../features/Todolists/Todolist/todolists-reducer";
+import {tasksReducer} from "../features/Todolists/tasks-reducer";
+import {todolistsReducer} from "../features/Todolists/todolists-reducer";
 import {v1} from "uuid";
 import {BrowserRouterDecorator, ReduxStoreProviderDecorator} from "./ReduxStoreProviderDecorator";
 

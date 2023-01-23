@@ -5,10 +5,10 @@ import {EditableSpan} from "../../../Components/EditableSpan/EditableSpan";
 import {Task} from "./Task/Task";
 import {Button, IconButton} from "@mui/material";
 import {Delete} from "@mui/icons-material";
-import {TodolistDomainType} from "./todolists-reducer";
+import {TodolistDomainType} from "../todolists-reducer";
 import {TaskStatuses, TaskType} from "../../../api/Todolists-api";
 import {useActions} from "../../../utils/useAction";
-
+import {todolistsActions, tasksActions} from '../index'
 
 export type TodolistProsType = {
     tasks: Array<TaskType>
@@ -17,7 +17,8 @@ export type TodolistProsType = {
 
 export const Todolist=React.memo( (props: TodolistProsType )=> {
 
-    const {ChangeTodolistFilterAC, removeTodolist, changeTodolistTitle, updateTask, addTask, fetchTask, removeTask} = useActions()
+    const {ChangeTodolistFilterAC, removeTodolist, changeTodolistTitle} = useActions(todolistsActions)
+   const  { updateTask, addTask, fetchTask, removeTask} = useActions(tasksActions)
     console.log("todolist is called")
 
     const changeIsDone = useCallback((taskId: string, status: TaskStatuses, todoListID: string) => {
