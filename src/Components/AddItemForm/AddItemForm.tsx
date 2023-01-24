@@ -24,13 +24,18 @@ export const AddItemForm = React.memo((props: addItemFormPropsType) => {
             addTaskHandler()
         }
     }
-    const addTaskHandler = () => {
+    const addTaskHandler = async () => {
+        debugger
         if (error !== null) {
             setError(null)
         }
-        if (title.trim() !== "" ) {
-            props.addItem(title.trim())
-            setTitle("")
+        if (title.trim() !== "") {
+            try {
+                await props.addItem(title.trim())
+                setTitle("")
+            } catch (error: any) {
+                setError(error.message)
+            }
         } else {
             setError("Title is required")
         }

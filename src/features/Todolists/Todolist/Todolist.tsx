@@ -6,11 +6,12 @@ import {Task} from "./Task/Task";
 import {Button, IconButton} from "@mui/material";
 import {Delete} from "@mui/icons-material";
 import {FilterValuesType, TodolistDomainType} from "../todolists-reducer";
-import { TaskType} from "../../../api/Todolists-api";
+import {TaskType} from "../../../api/Todolists-api";
 import {useActions} from "../../../utils/useAction";
 import {todolistsActions, tasksActions} from '../index'
 import {ButtonPropsColorOverrides} from "@mui/material/Button/Button";
 import {OverridableStringUnion} from "@mui/types";
+import {useAppDispatch} from "../../../app/store";
 
 export type TodolistProsType = {
     tasks: Array<TaskType>
@@ -18,7 +19,7 @@ export type TodolistProsType = {
 }
 
 export const Todolist=React.memo( (props: TodolistProsType )=> {
-
+    const dispatch = useAppDispatch()
     const {ChangeTodolistFilterAC, removeTodolist, changeTodolistTitle} = useActions(todolistsActions)
     const { addTask, fetchTask} = useActions(tasksActions)
     const onClickFilterButton = useCallback((buttonFilter: FilterValuesType) => {
@@ -28,8 +29,16 @@ export const Todolist=React.memo( (props: TodolistProsType )=> {
     const deleteTaskHandler =()=>{
         removeTodolist(props.todolist.id)
     }
-    const addTaskCallback = useCallback( (title: string)=>{
-        addTask({title, todoListID: props.todolist.id})
+    const addTaskCallback = useCallback(async (title: string) => {
+        const thunk =  tasksActions.addTask({title, todoListID: props.todolist.id})
+        const resultAction = await dispatch(thunk)
+        if (tasksActions.addTask.rejected.match(resultAction)) {
+            const errorMessage = resultAction.payload
+            if (errorMessage) {
+                throw new Error(errorMessage)
+            }
+        }
+
     }, [props.todolist.id])
     const changeTitle = useCallback((title: string) => {
         changeTodolistTitle({todoListID: props.todolist.id, title})

@@ -1,5 +1,5 @@
 import {TaskStateType} from "../../app/AppWithRedux";
-import {TaskStatuses, TodolistsApi} from "../../api/Todolists-api";
+import {TaskStatuses, TaskType, TodolistsApi} from "../../api/Todolists-api";
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {SetAppStatusAC} from "../../app/app-reducer";
 import {handleServerAppError, handleServerNetworkError} from "../../utils/error-utils";
@@ -23,10 +23,15 @@ export const fetchTask = createAsyncThunk('tasks/fetchTasks', async (todolistId:
         return rejectWithValue(null)
     }
 })
-export const addTask = createAsyncThunk('tasks/addTasks', async (param: { title: string, todoListID: string }, {
+export const addTask = createAsyncThunk<{
+    title: string;
+    todolistID: string;
+    task: TaskType;
+}, { title: string, todoListID: string }, {rejectValue: string | null}>('tasks/addTasks', async (param: { title: string, todoListID: string }, {
     dispatch,
     rejectWithValue
 }) => {
+    debugger
     dispatch(SetAppStatusAC({status: 'loading'}))
     const res = await TodolistsApi.createTask(param.todoListID, param.title)
     try {
@@ -35,10 +40,13 @@ export const addTask = createAsyncThunk('tasks/addTasks', async (param: { title:
             dispatch(SetAppStatusAC({status: "succeeded"}))
             return {title: param.title, todolistID: param.todoListID, task}
         } else {
+            debugger
             handleServerAppError(res.data, dispatch)
-            return rejectWithValue(null)
+            console.log(res.data.messages[0])
+            return rejectWithValue(res.data.messages[0])
         }
     } catch (error: any) {
+        debugger
         handleServerNetworkError(error, dispatch)
         return rejectWithValue(null)
     }
