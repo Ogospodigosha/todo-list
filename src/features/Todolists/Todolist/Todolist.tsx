@@ -21,7 +21,7 @@ export type TodolistProsType = {
 export const Todolist=React.memo( (props: TodolistProsType )=> {
     const dispatch = useAppDispatch()
     const {ChangeTodolistFilterAC, removeTodolist, changeTodolistTitle} = useActions(todolistsActions)
-    const { addTask, fetchTask} = useActions(tasksActions)
+    const { fetchTask} = useActions(tasksActions)
     const onClickFilterButton = useCallback((buttonFilter: FilterValuesType) => {
         ChangeTodolistFilterAC({filter: buttonFilter, id: props.todolist.id})
     }, [props.todolist.id])

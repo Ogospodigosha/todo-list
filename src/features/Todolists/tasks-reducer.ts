@@ -41,7 +41,7 @@ export const addTask = createAsyncThunk<{
             return {title: param.title, todolistID: param.todoListID, task}
         } else {
             debugger
-            handleServerAppError(res.data, dispatch)
+            handleServerAppError(res.data, dispatch, false)
             console.log(res.data.messages[0])
             return rejectWithValue(res.data.messages[0])
         }
