@@ -63,7 +63,8 @@ export const Todolist=React.memo( (props: TodolistProsType )=> {
         </h3>
         <AddItemForm addItem={addTaskCallback}  entityStatus={props.todolist.entityStatus}/>
         <div>
-            {tasksForTodolist.map((el)=><Task key ={el.id} todolistId={props.todolist.id}   el={el} />)}
+            {tasksForTodolist.length >0 ? tasksForTodolist.map((el)=><Task key ={el.id} todolistId={props.todolist.id}   el={el} />)
+                :<div style={{padding: '10px', color:'grey'}}>No tasks</div>}
         </div>
         <div>
             {renderFilterButton('inherit',  "all", "All")}

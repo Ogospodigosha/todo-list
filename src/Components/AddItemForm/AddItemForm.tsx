@@ -11,7 +11,6 @@ type addItemFormPropsType = {
 
 }
 export const AddItemForm = React.memo((props: addItemFormPropsType) => {
-    console.log("AddItemForm is called")
     const [title, setTitle] = useState("")
     const [error, setError] = useState<null | string>(null)
     const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
@@ -29,7 +28,7 @@ export const AddItemForm = React.memo((props: addItemFormPropsType) => {
         if (error !== null) {
             setError(null)
         }
-        if (title.trim() !== "") {
+        if (title.trim() !== "" ) {
             props.addItem(title.trim())
             setTitle("")
         } else {
