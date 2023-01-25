@@ -46,6 +46,7 @@ const initialState:Array<TodolistDomainType> = []
 }) => {
     dispatch(SetAppStatusAC({status: 'loading'}))
     const res = await TodolistsApi.createTodolist(title)
+     debugger
     try {
         if (res.data.resultCode === 0) {
             let todolist = res.data.data.item
@@ -54,8 +55,8 @@ const initialState:Array<TodolistDomainType> = []
             return {todolist: todolist}
         } else {
             debugger
-            handleServerAppError(res.data, dispatch)
-            return rejectWithValue(null)
+            handleServerAppError(res.data, dispatch, false)
+            return rejectWithValue(res.data.messages[0])
         }
     } catch (error: any) {
         handleServerNetworkError(error, dispatch)

@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import {AppRootState} from "../../app/store";
+import {AppRootState, useAppDispatch} from "../../app/store";
 import {useSelector} from "react-redux";
 import {
     TodolistDomainType
@@ -19,7 +19,22 @@ export const TodolistsList: React.FC = () => {
     const isLoggedIn = useSelector(selectIsLoggedIn)
     const todoLists = useSelector<AppRootState, Array<TodolistDomainType>>(state => state.todolists)
     const tasks = useSelector<AppRootState, TaskStateType>(state => state.tasks)
-    const {fetchTodolists, addTodolist} = useActions(todolistsActions)
+    const {fetchTodolists} = useActions(todolistsActions)
+    const dispatch = useAppDispatch()
+
+    const addTodolistCallback = async (title: string) => {
+        debugger
+        const thunk =  todolistsActions.addTodolist(title)
+        const resultAction = await dispatch(thunk)
+        if (todolistsActions.addTodolist.rejected.match(resultAction)) {
+            const errorMessage = resultAction.payload
+            console.log( resultAction)
+            if (errorMessage) {
+                throw new Error( resultAction.payload as string)
+            }
+        }
+
+    }
 
     useEffect(() => {
         if (!isLoggedIn) {
@@ -33,9 +48,10 @@ export const TodolistsList: React.FC = () => {
         return <Navigate to={'/login'}/>
     }
 
+
     return <>
         <Grid container style={{padding: "20px"}}>
-            <AddItemForm addItem={addTodolist}/>
+            <AddItemForm addItem={addTodolistCallback}/>
         </Grid>
         <Grid container spacing={3} style={{flexWrap:'nowrap', overflowX: 'scroll'}}>
             {

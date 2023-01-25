@@ -34,6 +34,7 @@ export const AddItemForm = React.memo((props: addItemFormPropsType) => {
                 await props.addItem(title.trim())
                 setTitle("")
             } catch (error: any) {
+                debugger
                 setError(error.message)
             }
         } else {
