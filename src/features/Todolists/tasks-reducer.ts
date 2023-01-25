@@ -5,6 +5,7 @@ import {SetAppStatusAC} from "../../app/app-reducer";
 import {handleServerAppError, handleServerNetworkError} from "../../utils/error-utils";
 import {AppRootState} from "../../app/store";
 import {asyncActions as todolistAsyncActions} from './todolists-reducer'
+import {AxiosError} from "axios";
 
 
 
@@ -13,13 +14,13 @@ export const fetchTask = createAsyncThunk('tasks/fetchTasks', async (todolistId:
     rejectWithValue
 }) => {
     dispatch(SetAppStatusAC({status: 'loading'}))
-    const res = await TodolistsApi.getTasks(todolistId)
     try {
+        const res = await TodolistsApi.getTasks(todolistId)
         let tasks = res.data.items
         dispatch(SetAppStatusAC({status: 'succeeded'}))
         return {todoListId: todolistId, tasks}
-    } catch (error: any) {
-        handleServerNetworkError(error, dispatch)
+    } catch (e) {
+        handleServerNetworkError(e, dispatch)
         return rejectWithValue(null)
     }
 })
@@ -31,23 +32,20 @@ export const addTask = createAsyncThunk<{
     dispatch,
     rejectWithValue
 }) => {
-    debugger
     dispatch(SetAppStatusAC({status: 'loading'}))
-    const res = await TodolistsApi.createTask(param.todoListID, param.title)
     try {
+        const res = await TodolistsApi.createTask(param.todoListID, param.title)
         if (res.data.resultCode === 0) {
             let task = res.data.data.item
             dispatch(SetAppStatusAC({status: "succeeded"}))
             return {title: param.title, todolistID: param.todoListID, task}
         } else {
-            debugger
             handleServerAppError(res.data, dispatch, false)
-            console.log(res.data.messages[0])
             return rejectWithValue(res.data.messages[0])
         }
-    } catch (error: any) {
-        debugger
-        handleServerNetworkError(error, dispatch)
+    }
+    catch (e) {
+        handleServerNetworkError(e, dispatch)
         return rejectWithValue(null)
     }
 })
@@ -56,8 +54,8 @@ export const removeTask = createAsyncThunk('tasks/removeTask', async (param: { t
     rejectWithValue
 }) => {
     dispatch(SetAppStatusAC({status: 'loading'}))
-    const res = await TodolistsApi.deleteTask(param.todoListID, param.taskId)
     try {
+        const res = await TodolistsApi.deleteTask(param.todoListID, param.taskId)
         if (res.data.resultCode === 0) {
             dispatch(SetAppStatusAC({status: 'succeeded'}))
             return {todolistID: param.todoListID, taskID: param.taskId}
@@ -65,8 +63,8 @@ export const removeTask = createAsyncThunk('tasks/removeTask', async (param: { t
             handleServerAppError(res.data, dispatch)
             return rejectWithValue(null)
         }
-    } catch (error: any) {
-        handleServerNetworkError(error, dispatch)
+    } catch (e) {
+        handleServerNetworkError(e, dispatch)
         return rejectWithValue(null)
     }
 })
@@ -92,8 +90,8 @@ export const updateTask = createAsyncThunk('tasks/updateTask', async (param: { t
         ...param.domainModel
     }
     dispatch(SetAppStatusAC({status: "loading"}))
-    const res = await TodolistsApi.updateTask(param.todoListID, param.taskId, apiModel)
     try {
+        const res = await TodolistsApi.updateTask(param.todoListID, param.taskId, apiModel)
         if (res.data.resultCode === 0) {
             dispatch(SetAppStatusAC({status: "succeeded"}))
             return {taskId: param.taskId, domainModel: apiModel, todoListID: param.todoListID}
@@ -101,8 +99,8 @@ export const updateTask = createAsyncThunk('tasks/updateTask', async (param: { t
             handleServerAppError(res.data, dispatch)
             return rejectWithValue(null)
         }
-    } catch (error: any) {
-        handleServerNetworkError(error, dispatch)
+    } catch (e) {
+        handleServerNetworkError(e, dispatch)
         return rejectWithValue(null)
     }
 })

@@ -10,31 +10,26 @@ const initialState = {
     isLoggedIn: false,
     isInitialized: false
 }
-export const loginTC = createAsyncThunk('auth/login', async (param:LoginParamsType, thunkAPI)=>{
-   thunkAPI.dispatch(SetAppStatusAC({status:'loading'}))
-   const res = await authAPI.login(param)
-    debugger
-     try{
-            if (res.data.resultCode === 0) {
-              thunkAPI.dispatch(SetAppStatusAC({status:'succeeded'}))
-               return  {isLoggedIn: true}
-            } else {
-                handleServerAppError(res.data, thunkAPI.dispatch)
-                return thunkAPI.rejectWithValue(null)
-
-            }
-     }
-     catch (error: any ) {
-        debugger
-         handleServerNetworkError(error, thunkAPI.dispatch)
-         return thunkAPI.rejectWithValue(null)
-     }
+export const loginTC = createAsyncThunk('auth/login', async (param: LoginParamsType, thunkAPI) => {
+    thunkAPI.dispatch(SetAppStatusAC({status: 'loading'}))
+    try {
+        const res = await authAPI.login(param)
+        if (res.data.resultCode === 0) {
+            thunkAPI.dispatch(SetAppStatusAC({status: 'succeeded'}))
+            return {isLoggedIn: true}
+        } else {
+            handleServerAppError(res.data, thunkAPI.dispatch)
+            return thunkAPI.rejectWithValue(null)
+        }
+    } catch (e) {
+        handleServerNetworkError(e, thunkAPI.dispatch)
+        return thunkAPI.rejectWithValue(null)
+    }
 })
 export const logoutTC = createAsyncThunk('auth/login', async (param, {dispatch, rejectWithValue}) => {
     dispatch(SetAppStatusAC({status: 'loading'}))
-    const res = await authAPI.logout()
-    debugger
     try {
+        const res = await authAPI.logout()
         if (res.data.resultCode === 0) {
             dispatch(SetAppStatusAC({status: 'succeeded'}))
             return {isLoggedIn: false}
@@ -42,17 +37,15 @@ export const logoutTC = createAsyncThunk('auth/login', async (param, {dispatch, 
             handleServerAppError(res.data, dispatch)
             return rejectWithValue(null)
         }
-    } catch (error: any) {
-        debugger
-        handleServerNetworkError(error, dispatch)
+    } catch (e) {
+        handleServerNetworkError(e, dispatch)
         return rejectWithValue(null)
     }
 })
 export const initializeAppTC = createAsyncThunk('auth/initializeApp', async (param, {dispatch, rejectWithValue}) => {
     dispatch(SetAppStatusAC({status: "loading"}));
-    const res = await authAPI.me()
-    debugger
     try {
+        const res = await authAPI.me()
         if (res.data.resultCode === 0) {
             dispatch(setIsLoggedInAC({isLoggedIn: true}));
             dispatch(SetAppStatusAC({status: "succeeded"}));
@@ -62,8 +55,8 @@ export const initializeAppTC = createAsyncThunk('auth/initializeApp', async (par
             return {isInitialized: true}
         }
 
-    } catch (error: any) {
-        handleServerNetworkError(error, dispatch)
+    } catch (e) {
+        handleServerNetworkError(e, dispatch)
         return rejectWithValue(null)
     }
 })
@@ -73,13 +66,11 @@ const slice = createSlice({
     initialState: initialState,
     reducers: {
         setIsLoggedInAC(state, action: PayloadAction<{isLoggedIn: boolean}>) {
-            debugger
                 state.isLoggedIn = action.payload.isLoggedIn
         },
     },
     extraReducers: (builder)=>{
         builder.addCase(loginTC.fulfilled, (state, action)=>{
-            debugger
                 state.isLoggedIn = action.payload.isLoggedIn
         });
         builder.addCase(initializeAppTC.fulfilled, (state, action)=>{

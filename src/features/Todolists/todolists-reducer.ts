@@ -2,6 +2,7 @@ import {TodolistsApi, TodolistType} from "../../api/Todolists-api";
 import {RequestStatusType, SetAppErrorAC, SetAppStatusAC} from "../../app/app-reducer";
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {handleServerAppError, handleServerNetworkError} from "../../utils/error-utils";
+import {AxiosError} from "axios";
 
 
 const initialState:Array<TodolistDomainType> = []
@@ -11,12 +12,12 @@ const initialState:Array<TodolistDomainType> = []
     rejectWithValue
 }) => {
     dispatch(SetAppStatusAC({status: 'loading'}))
-    const res = await TodolistsApi.getTodolists()
     try {
+        const res = await TodolistsApi.getTodolists()
         dispatch(SetAppStatusAC({status: 'succeeded'}))
         return {todolists: res.data}
-    } catch (error: any) {
-        handleServerNetworkError(error, dispatch)
+    } catch (e) {
+        handleServerNetworkError(e, dispatch)
         return rejectWithValue(null)
     }
 })
@@ -26,8 +27,8 @@ const initialState:Array<TodolistDomainType> = []
 }) => {
     dispatch(SetAppStatusAC({status: 'loading'}))
     dispatch(ChangeTodolistEntityStatusAC({id: todoListID, status: 'loading'}))
-    const res = await TodolistsApi.deleteTodolist(todoListID)
     try {
+        const res = await TodolistsApi.deleteTodolist(todoListID)
         if (res.data.resultCode === 0) {
             dispatch(SetAppStatusAC({status: 'succeeded'}))
             return {todolistId: todoListID}
@@ -35,31 +36,31 @@ const initialState:Array<TodolistDomainType> = []
             handleServerAppError(res.data, dispatch)
             return rejectWithValue(null)
         }
-    } catch (error: any) {
-        handleServerNetworkError(error, dispatch)
+    } catch (e) {
+        handleServerNetworkError(e, dispatch)
         return rejectWithValue(null)
     }
 })
- const addTodolist = createAsyncThunk('todolists/addTodolist', async (title: string, {
+ const addTodolist = createAsyncThunk<{
+     todolist: TodolistType
+ }, string, {rejectValue: string | null}  >('todolists/addTodolist', async (title: string, {
     dispatch,
     rejectWithValue
 }) => {
     dispatch(SetAppStatusAC({status: 'loading'}))
-    const res = await TodolistsApi.createTodolist(title)
-     debugger
     try {
+        const res = await TodolistsApi.createTodolist(title)
         if (res.data.resultCode === 0) {
             let todolist = res.data.data.item
             dispatch(SetAppStatusAC({status: 'succeeded'}))
             dispatch(SetAppErrorAC({error: null}))
             return {todolist: todolist}
         } else {
-            debugger
             handleServerAppError(res.data, dispatch, false)
             return rejectWithValue(res.data.messages[0])
         }
-    } catch (error: any) {
-        handleServerNetworkError(error, dispatch)
+    } catch (e) {
+        handleServerNetworkError(e, dispatch)
         return rejectWithValue(null)
     }
 })
@@ -68,8 +69,8 @@ const initialState:Array<TodolistDomainType> = []
     rejectWithValue
 }) => {
     dispatch(SetAppStatusAC({status: 'loading'}))
-    const res = await TodolistsApi.updateTodolistTitle(param.todoListID, param.title)
     try {
+        const res = await TodolistsApi.updateTodolistTitle(param.todoListID, param.title)
         if (res.data.resultCode === 0) {
             dispatch(SetAppStatusAC({status: 'succeeded'}))
             return {id: param.todoListID, title: param.title}
@@ -78,8 +79,8 @@ const initialState:Array<TodolistDomainType> = []
             dispatch(SetAppStatusAC({status: 'succeeded'}))
             return rejectWithValue(null)
         }
-    } catch (error: any) {
-        handleServerNetworkError(error, dispatch)
+    } catch (e) {
+        handleServerNetworkError(e, dispatch)
         return rejectWithValue(null)
     }
 })

@@ -23,14 +23,13 @@ export const TodolistsList: React.FC = () => {
     const dispatch = useAppDispatch()
 
     const addTodolistCallback = async (title: string) => {
-        debugger
-        const thunk =  todolistsActions.addTodolist(title)
+        const thunk = todolistsActions.addTodolist(title)
         const resultAction = await dispatch(thunk)
         if (todolistsActions.addTodolist.rejected.match(resultAction)) {
             const errorMessage = resultAction.payload
-            console.log( resultAction)
+            console.log(resultAction)
             if (errorMessage) {
-                throw new Error( resultAction.payload as string)
+                throw new Error(errorMessage)
             }
         }
 
@@ -40,11 +39,9 @@ export const TodolistsList: React.FC = () => {
         if (!isLoggedIn) {
             return
         }
-        debugger
        fetchTodolists()
     }, [])
     if (!isLoggedIn) {
-        debugger
         return <Navigate to={'/login'}/>
     }
 
