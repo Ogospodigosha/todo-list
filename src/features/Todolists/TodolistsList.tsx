@@ -1,24 +1,19 @@
 import React, {useEffect} from "react";
-import {AppRootState} from "../../app/store";
 import {useSelector} from "react-redux";
-import {
-    TodolistDomainType
-} from "./todolists-reducer";
 import {Grid, Paper} from "@mui/material";
 import {AddItemForm} from "../../Components/AddItemForm/AddItemForm";
 import {Todolist} from "./Todolist/Todolist";
-import {TaskStateType} from "../../app/AppWithRedux";
 import { Navigate } from "react-router-dom";
-import {selectIsLoggedIn} from "../Login/selectors";
 import {useActions, useAppDispatch} from "../../utils/useAction";
-import {todolistsActions} from "./index";
+import {TasksTodolistsSelector, todolistsActions} from "./index";
+import {authSelectors} from "../Login";
 
 
 
 export const TodolistsList: React.FC = () => {
-    const isLoggedIn = useSelector(selectIsLoggedIn)
-    const todoLists = useSelector<AppRootState, Array<TodolistDomainType>>(state => state.todolists)
-    const tasks = useSelector<AppRootState, TaskStateType>(state => state.tasks)
+    const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn)
+    const todoLists = useSelector(TasksTodolistsSelector.selectTodolists)
+    const tasks = useSelector(TasksTodolistsSelector.selectTasks)
     const {fetchTodolists} = useActions(todolistsActions)
     const dispatch = useAppDispatch()
 

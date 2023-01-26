@@ -3,7 +3,7 @@ import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootState} from "../../app/store";
-import {SetAppErrorAC} from "../../app/app-reducer";
+import {SetAppError} from "../../app/app-reducer";
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
     props,
@@ -19,7 +19,7 @@ export const  CustomizedSnackbars = () => {
         if (reason === "ckickaway") {
             return;
         }
-            dispatch(SetAppErrorAC({error: null}))
+            dispatch(SetAppError({error: null}))
     };
 
     return (<>
