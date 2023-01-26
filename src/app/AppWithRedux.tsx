@@ -8,10 +8,9 @@ import {useSelector} from "react-redux";
 
 import {CustomizedSnackbars} from "../Components/ErrorSnackBar/ErrorSnackBar";
 import {Navigate, Route, Routes } from 'react-router-dom';
-import {initializeAppTC, logoutTC} from "../features/Login/authReducer";
-import {authSelectors, Login} from "../features/Login";
+import {authActions, authSelectors, Login} from "../features/Login";
 import {appSelectors} from "./index";
-import {useAppDispatch} from "../utils/useAction";
+import {useActions, useAppDispatch} from "../utils/useAction";
 
 
 export type TaskStateType = {
@@ -24,9 +23,10 @@ export function AppWithRedux() {
     const appStatus = useSelector(appSelectors.selectAppStatus)
     const isInitialized = useSelector(authSelectors.selectIsInitialized)
     const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn)
+    const {initializeApp, logout} = useActions(authActions)
     console.log("AppWithRedux is coled")
     useEffect(()=>{
-        dispatch(initializeAppTC())
+        initializeApp()
     },[dispatch])
     if (!isInitialized) {
         return <div
@@ -34,8 +34,8 @@ export function AppWithRedux() {
             <CircularProgress/>
         </div>
     }
-    const logout = () =>{
-        dispatch(logoutTC())
+    const out = () =>{
+       logout()
     }
     return (
         <div className="App">
@@ -48,7 +48,7 @@ export function AppWithRedux() {
                     <Typography variant="h6">
                         News
                     </Typography>
-                    {isLoggedIn && <Button color="inherit" onClick={logout}>logout</Button>}
+                    {isLoggedIn && <Button color="inherit" onClick={out}>logout</Button>}
                 </Toolbar>
             </AppBar>
             {appStatus === "loading" && <LinearProgress color={'secondary'}/>}

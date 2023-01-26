@@ -2,10 +2,10 @@ import {Button, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, G
 import {useFormik} from 'formik';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import {loginTC} from "./authReducer";
 import {AppRootState} from "../../app/store";
 import { Navigate } from 'react-router-dom';
-import {useAppDispatch} from "../../utils/useAction";
+import {useActions, useAppDispatch} from "../../utils/useAction";
+import {authActions} from "./index";
 
 type FormikErrorType = {
     email?: string
@@ -16,7 +16,7 @@ type FormikErrorType = {
 export const Login = () => {
     const dispatch = useAppDispatch()
     const isLoggedIn = useSelector<AppRootState, boolean>(state => state.auth.isLoggedIn)
-
+    const {login} = useActions(authActions)
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -36,7 +36,7 @@ export const Login = () => {
             return errors
         },
         onSubmit: values => {
-            dispatch(loginTC(values))
+            login(values)
             formik.resetForm()
         },
     });

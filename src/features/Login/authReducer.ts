@@ -10,7 +10,7 @@ const initialState = {
     isLoggedIn: false,
     isInitialized: false
 }
-export const loginTC = createAsyncThunk('auth/login', async (param: LoginParamsType, thunkAPI) => {
+export const login = createAsyncThunk('auth/login', async (param: LoginParamsType, thunkAPI) => {
     thunkAPI.dispatch(SetAppStatusAC({status: 'loading'}))
     try {
         const res = await authAPI.login(param)
@@ -26,7 +26,7 @@ export const loginTC = createAsyncThunk('auth/login', async (param: LoginParamsT
         return thunkAPI.rejectWithValue(null)
     }
 })
-export const logoutTC = createAsyncThunk('auth/login', async (param, {dispatch, rejectWithValue}) => {
+export const logout = createAsyncThunk('auth/login', async (param, {dispatch, rejectWithValue}) => {
     dispatch(SetAppStatusAC({status: 'loading'}))
     try {
         const res = await authAPI.logout()
@@ -42,7 +42,7 @@ export const logoutTC = createAsyncThunk('auth/login', async (param, {dispatch, 
         return rejectWithValue(null)
     }
 })
-export const initializeAppTC = createAsyncThunk('auth/initializeApp', async (param, {dispatch, rejectWithValue}) => {
+export const initializeApp = createAsyncThunk('auth/initializeApp', async (param, {dispatch, rejectWithValue}) => {
     dispatch(SetAppStatusAC({status: "loading"}));
     try {
         const res = await authAPI.me()
@@ -60,7 +60,11 @@ export const initializeAppTC = createAsyncThunk('auth/initializeApp', async (par
         return rejectWithValue(null)
     }
 })
-
+export const asyncAuthActions = {
+    login,
+    logout,
+    initializeApp
+}
 export const slice = createSlice({
     name: 'auth',
     initialState: initialState,
@@ -70,10 +74,10 @@ export const slice = createSlice({
         },
     },
     extraReducers: (builder)=>{
-        builder.addCase(loginTC.fulfilled, (state, action)=>{
+        builder.addCase(login.fulfilled, (state, action)=>{
                 state.isLoggedIn = action.payload.isLoggedIn
         });
-        builder.addCase(initializeAppTC.fulfilled, (state, action)=>{
+        builder.addCase(initializeApp.fulfilled, (state, action)=>{
             state.isInitialized = action.payload.isInitialized
         });
     }
