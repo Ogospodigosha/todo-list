@@ -7,11 +7,11 @@ import {Button, IconButton} from "@mui/material";
 import {Delete} from "@mui/icons-material";
 import {FilterValuesType, TodolistDomainType} from "../todolists-reducer";
 import {TaskType} from "../../../api/Todolists-api";
-import {useActions} from "../../../utils/useAction";
+import {useActions, useAppDispatch} from "../../../utils/useAction";
 import {todolistsActions, tasksActions} from '../index'
 import {ButtonPropsColorOverrides} from "@mui/material/Button/Button";
 import {OverridableStringUnion} from "@mui/types";
-import {useAppDispatch} from "../../../app/store";
+
 
 export type TodolistProsType = {
     tasks: Array<TaskType>

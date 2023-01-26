@@ -2,7 +2,7 @@ import {TodolistsApi, TodolistType} from "../../api/Todolists-api";
 import {RequestStatusType, SetAppErrorAC, SetAppStatusAC} from "../../app/app-reducer";
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {handleServerAppError, handleServerNetworkError} from "../../utils/error-utils";
-import {AxiosError} from "axios";
+
 
 
 const initialState:Array<TodolistDomainType> = []
@@ -52,6 +52,7 @@ const initialState:Array<TodolistDomainType> = []
         const res = await TodolistsApi.createTodolist(title)
         if (res.data.resultCode === 0) {
             let todolist = res.data.data.item
+            console.log(res)
             dispatch(SetAppStatusAC({status: 'succeeded'}))
             dispatch(SetAppErrorAC({error: null}))
             return {todolist: todolist}
@@ -71,6 +72,7 @@ const initialState:Array<TodolistDomainType> = []
     dispatch(SetAppStatusAC({status: 'loading'}))
     try {
         const res = await TodolistsApi.updateTodolistTitle(param.todoListID, param.title)
+        console.log(res)
         if (res.data.resultCode === 0) {
             dispatch(SetAppStatusAC({status: 'succeeded'}))
             return {id: param.todoListID, title: param.title}

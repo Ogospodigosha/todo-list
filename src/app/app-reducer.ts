@@ -8,7 +8,7 @@ const initialState = {
     error: null as RequestErrorType,
 
 }
-const slice = createSlice({
+export const slice = createSlice({
     name: 'app',
     initialState: initialState,
     reducers: {

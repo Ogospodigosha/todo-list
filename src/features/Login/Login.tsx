@@ -3,8 +3,9 @@ import {useFormik} from 'formik';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import {loginTC} from "./authReducer";
-import {AppRootState, useAppDispatch} from "../../app/store";
+import {AppRootState} from "../../app/store";
 import { Navigate } from 'react-router-dom';
+import {useAppDispatch} from "../../utils/useAction";
 
 type FormikErrorType = {
     email?: string

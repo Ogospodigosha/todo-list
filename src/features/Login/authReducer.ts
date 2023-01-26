@@ -61,7 +61,7 @@ export const initializeAppTC = createAsyncThunk('auth/initializeApp', async (par
     }
 })
 
-const slice = createSlice({
+export const slice = createSlice({
     name: 'auth',
     initialState: initialState,
     reducers: {

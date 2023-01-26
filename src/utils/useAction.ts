@@ -1,8 +1,11 @@
 
 import {useMemo} from "react";
-import {ActionCreatorsMapObject, bindActionCreators} from "redux";
-import {useAppDispatch} from "../app/store";
-
+import {ActionCreatorsMapObject, AnyAction, bindActionCreators} from "redux";
+import {AppRootState} from "../app/store";
+import {ThunkDispatch} from "redux-thunk";
+import {useDispatch} from "react-redux";
+type ThunkAppDispatchType = ThunkDispatch<AppRootState, any, AnyAction>
+export const useAppDispatch = () => useDispatch<ThunkAppDispatchType>()
 
 
 
